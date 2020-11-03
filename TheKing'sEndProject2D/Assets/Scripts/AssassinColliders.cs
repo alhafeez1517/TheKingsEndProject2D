@@ -29,18 +29,16 @@ public class AssassinColliders : MonoBehaviour
     public bool SlidingState()
     {
         return sliding;
-    }
-
-    // Need to change to tags not names
+    }   
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.name == "GroundCollider") // name of the ground's collider
+        if (other.tag == "Ground") 
         {
             grounded = true;
         }
 
-        if (other.name == "WallCollider")
+        if (other.tag  == "Wall")
         {
             sliding = true;
         }
@@ -49,12 +47,12 @@ public class AssassinColliders : MonoBehaviour
     void OnTriggerExit2D(Collider2D other)
     {
 
-        if (other.name == "GroundCollider")
+        if (other.tag == "Ground")
         {
             grounded = false;
         }
 
-        if (other.name == "WallCollider")
+        if (other.tag == "Wall")
         {
             sliding = false;
         }

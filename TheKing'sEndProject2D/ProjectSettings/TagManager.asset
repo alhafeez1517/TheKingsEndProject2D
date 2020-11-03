@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Ground
   - Wall
+  - BackGround
+  - Traps
   layers:
   - Default
   - TransparentFX
@@ -18,13 +20,13 @@ TagManager:
   - Ground
   - 
   - 
+  - Wall
   - 
   - 
   - 
   - 
   - 
-  - 
-  - 
+  - BackGround
   - 
   - 
   - 
@@ -42,4 +44,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 268119895
+    locked: 0
+  - name: Environment
+    uniqueID: 4275729135
+    locked: 0
+  - name: Frontground
+    uniqueID: 1109826495
+    locked: 0
+  - name: Traps
+    uniqueID: 2054327185
     locked: 0
