@@ -1,0 +1,1474 @@
+fileFormatVersion: 2
+guid: d05d23796593f3e4485184e69ab60836
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2092388411923121107
+    second: PC Computer - La Tale - Traps_0
+  - first:
+      213: -6923101708720063183
+    second: PC Computer - La Tale - Traps_1
+  - first:
+      213: 4092347055019791601
+    second: PC Computer - La Tale - Traps_2
+  - first:
+      213: -520971529481404027
+    second: PC Computer - La Tale - Traps_3
+  - first:
+      213: 6388355741935163253
+    second: PC Computer - La Tale - Traps_4
+  - first:
+      213: 5033868925941659632
+    second: PC Computer - La Tale - Traps_5
+  - first:
+      213: -8667504269101630555
+    second: PC Computer - La Tale - Traps_6
+  - first:
+      213: 3866113425345343738
+    second: PC Computer - La Tale - Traps_7
+  - first:
+      213: -7822930644684354398
+    second: PC Computer - La Tale - Traps_8
+  - first:
+      213: 3917562425505267066
+    second: PC Computer - La Tale - Traps_9
+  - first:
+      213: -617018065264005744
+    second: PC Computer - La Tale - Traps_10
+  - first:
+      213: -1338494489812440304
+    second: PC Computer - La Tale - Traps_11
+  - first:
+      213: 6084731874168848281
+    second: PC Computer - La Tale - Traps_12
+  - first:
+      213: -6645890879482840531
+    second: PC Computer - La Tale - Traps_13
+  - first:
+      213: 1905569007528730807
+    second: PC Computer - La Tale - Traps_14
+  - first:
+      213: -1412103901234921969
+    second: PC Computer - La Tale - Traps_15
+  - first:
+      213: -1672521224148513703
+    second: PC Computer - La Tale - Traps_16
+  - first:
+      213: -2003285709410966930
+    second: PC Computer - La Tale - Traps_17
+  - first:
+      213: 98650772457705089
+    second: PC Computer - La Tale - Traps_18
+  - first:
+      213: -4023314292116898856
+    second: PC Computer - La Tale - Traps_19
+  - first:
+      213: 3622904037615316084
+    second: PC Computer - La Tale - Traps_20
+  - first:
+      213: 8347570855936973707
+    second: PC Computer - La Tale - Traps_21
+  - first:
+      213: 2161770259837761947
+    second: PC Computer - La Tale - Traps_22
+  - first:
+      213: 5457259451634097387
+    second: PC Computer - La Tale - Traps_23
+  - first:
+      213: 7498746405105856103
+    second: PC Computer - La Tale - Traps_24
+  - first:
+      213: 499183830617378487
+    second: PC Computer - La Tale - Traps_25
+  - first:
+      213: 8369841894444742460
+    second: PC Computer - La Tale - Traps_26
+  - first:
+      213: -6652904153872244914
+    second: PC Computer - La Tale - Traps_27
+  - first:
+      213: -3884770395856575622
+    second: PC Computer - La Tale - Traps_28
+  - first:
+      213: -8339505612219344603
+    second: PC Computer - La Tale - Traps_29
+  - first:
+      213: -1470438996095575250
+    second: PC Computer - La Tale - Traps_30
+  - first:
+      213: -6296937621412539540
+    second: PC Computer - La Tale - Traps_31
+  - first:
+      213: 2802512998367645182
+    second: PC Computer - La Tale - Traps_32
+  - first:
+      213: 774192971816375313
+    second: PC Computer - La Tale - Traps_33
+  - first:
+      213: -1095098581457244932
+    second: PC Computer - La Tale - Traps_34
+  - first:
+      213: 5904434625786639905
+    second: PC Computer - La Tale - Traps_35
+  - first:
+      213: -6303506540551983205
+    second: PC Computer - La Tale - Traps_36
+  - first:
+      213: -8704076855118093593
+    second: PC Computer - La Tale - Traps_37
+  - first:
+      213: 1941384082489825794
+    second: PC Computer - La Tale - Traps_38
+  - first:
+      213: 6124851551786200494
+    second: PC Computer - La Tale - Traps_39
+  - first:
+      213: 1246151282737524348
+    second: PC Computer - La Tale - Traps_40
+  - first:
+      213: -6745229773384501064
+    second: PC Computer - La Tale - Traps_41
+  - first:
+      213: -140586617192921682
+    second: PC Computer - La Tale - Traps_42
+  - first:
+      213: 213836780585755405
+    second: PC Computer - La Tale - Traps_43
+  - first:
+      213: -5038625995877290471
+    second: PC Computer - La Tale - Traps_44
+  - first:
+      213: -6393636849394335966
+    second: PC Computer - La Tale - Traps_45
+  - first:
+      213: -6498750416235687474
+    second: PC Computer - La Tale - Traps_46
+  - first:
+      213: 2077989530115823191
+    second: PC Computer - La Tale - Traps_47
+  - first:
+      213: -8890760012242431505
+    second: PC Computer - La Tale - Traps_48
+  - first:
+      213: -8554697452373046673
+    second: PC Computer - La Tale - Traps_49
+  - first:
+      213: -3394427593865780736
+    second: PC Computer - La Tale - Traps_50
+  - first:
+      213: 4551740052664379404
+    second: PC Computer - La Tale - Traps_51
+  - first:
+      213: 7051490998948728113
+    second: PC Computer - La Tale - Traps_52
+  - first:
+      213: 3481019102533781722
+    second: PC Computer - La Tale - Traps_53
+  - first:
+      213: -5794334630003435130
+    second: PC Computer - La Tale - Traps_54
+  - first:
+      213: -6374960653031960104
+    second: PC Computer - La Tale - Traps_55
+  - first:
+      213: -6065288773974435
+    second: PC Computer - La Tale - Traps_56
+  - first:
+      213: 2414965126603976837
+    second: PC Computer - La Tale - Traps_57
+  - first:
+      213: -2025854068226578099
+    second: PC Computer - La Tale - Traps_58
+  - first:
+      213: 3112067800419148747
+    second: PC Computer - La Tale - Traps_59
+  - first:
+      213: -4118573667933953225
+    second: PC Computer - La Tale - Traps_60
+  - first:
+      213: 5927254868044909669
+    second: PC Computer - La Tale - Traps_61
+  - first:
+      213: 7500971805935479036
+    second: PC Computer - La Tale - Traps_62
+  - first:
+      213: -3274868797952926757
+    second: PC Computer - La Tale - Traps_63
+  - first:
+      213: 7377436813460952978
+    second: PC Computer - La Tale - Traps_64
+  - first:
+      213: -5483958111153528840
+    second: PC Computer - La Tale - Traps_65
+  - first:
+      213: -598694720282545538
+    second: PC Computer - La Tale - Traps_66
+  - first:
+      213: 7708994426644936101
+    second: PC Computer - La Tale - Traps_67
+  - first:
+      213: 1345211053449860479
+    second: PC Computer - La Tale - Traps_68
+  - first:
+      213: 1910576771110342875
+    second: PC Computer - La Tale - Traps_69
+  - first:
+      213: 3008187039670429319
+    second: PC Computer - La Tale - Traps_70
+  - first:
+      213: -5454769798342904749
+    second: PC Computer - La Tale - Traps_71
+  - first:
+      213: 4983287223300674982
+    second: PC Computer - La Tale - Traps_72
+  - first:
+      213: -6581797811224740437
+    second: PC Computer - La Tale - Traps_73
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_1
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 584
+        width: 62
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13d37d31da33cef90800000000000000
+      internalID: -6923101708720063183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_3
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 581
+        width: 46
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5814b27772325c8f0800000000000000
+      internalID: -520971529481404027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_4
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 581
+        width: 27
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5775fd843bff7a850800000000000000
+      internalID: 6388355741935163253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_5
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 580
+        width: 46
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f731a81e15ebd540800000000000000
+      internalID: 5033868925941659632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_6
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 581
+        width: 26
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5abf3072ac6d6b780800000000000000
+      internalID: -8667504269101630555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_7
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 580
+        width: 46
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af0f3134da137a530800000000000000
+      internalID: 3866113425345343738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_8
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 581
+        width: 26
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ac421db60e5f6390800000000000000
+      internalID: -7822930644684354398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_9
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 580
+        width: 47
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7db8a5154afd5630800000000000000
+      internalID: 3917562425505267066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_10
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 581
+        width: 25
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09da0f7b659ef67f0800000000000000
+      internalID: -617018065264005744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_11
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 580
+        width: 44
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01b69e86a56bc6de0800000000000000
+      internalID: -1338494489812440304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_12
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 580
+        width: 29
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99fb459b66f417450800000000000000
+      internalID: 6084731874168848281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_13
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 579
+        width: 47
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2aba60e47d05c3a0800000000000000
+      internalID: -6645890879482840531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_14
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 581
+        width: 26
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b06ebc8ae0f17a10800000000000000
+      internalID: 1905569007528730807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_15
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 580
+        width: 45
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0ef2f4cbf2376ce0800000000000000
+      internalID: -1412103901234921969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_16
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 581
+        width: 26
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95c835bdec20ac8e0800000000000000
+      internalID: -1672521224148513703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_17
+      rect:
+        serializedVersion: 2
+        x: 634
+        y: 580
+        width: 46
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6261fad246e234e0800000000000000
+      internalID: -2003285709410966930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_20
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 512
+        width: 64
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47ca369f604274230800000000000000
+      internalID: 3622904037615316084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_23
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 508
+        width: 56
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bec1bc5be841cbb40800000000000000
+      internalID: 5457259451634097387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_26
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 507
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c37bf809bd6a72470800000000000000
+      internalID: 8369841894444742460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_29
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 509
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5291a4d84df144c80800000000000000
+      internalID: -8339505612219344603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_32
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 508
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efd4e1249b684e620800000000000000
+      internalID: 2802512998367645182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_35
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 508
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12677855204c0f150800000000000000
+      internalID: 5904434625786639905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_38
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 508
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20a5761898e21fa10800000000000000
+      internalID: 1941384082489825794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_41
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 508
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b8370542412462a0800000000000000
+      internalID: -6745229773384501064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_44
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 508
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91e6faf3a54331ab0800000000000000
+      internalID: -5038625995877290471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_45
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 475
+        width: 12
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22fb001192d3547a0800000000000000
+      internalID: -6393636849394335966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_46
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 475
+        width: 33
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec19954adeccfc5a0800000000000000
+      internalID: -6498750416235687474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_47
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 475
+        width: 74
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 756d88dc77086dc10800000000000000
+      internalID: 2077989530115823191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_48
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 475
+        width: 104
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe1da07cfdcad9480800000000000000
+      internalID: -8890760012242431505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_49
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 475
+        width: 114
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6a8d56edfb974980800000000000000
+      internalID: -8554697452373046673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_50
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 475
+        width: 111
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 002a8db761294e0d0800000000000000
+      internalID: -3394427593865780736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_51
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 444
+        width: 12
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c086af436770b2f30800000000000000
+      internalID: 4551740052664379404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_52
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 444
+        width: 33
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13d043104bdebd160800000000000000
+      internalID: 7051490998948728113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_53
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 444
+        width: 74
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad800e63e601f4030800000000000000
+      internalID: 3481019102533781722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_54
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 444
+        width: 104
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68996ec8a53669fa0800000000000000
+      internalID: -5794334630003435130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_55
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 444
+        width: 114
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d110f2ef079787a0800000000000000
+      internalID: -6374960653031960104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_56
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 444
+        width: 111
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d56ca29e6a37aeff0800000000000000
+      internalID: -6065288773974435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_57
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 415
+        width: 13
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 580bf24dcfda38120800000000000000
+      internalID: 2414965126603976837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_58
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 415
+        width: 33
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4923985578b2e3e0800000000000000
+      internalID: -2025854068226578099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_59
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 415
+        width: 74
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc32ae01d29403b20800000000000000
+      internalID: 3112067800419148747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_60
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 415
+        width: 104
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 733e485f113e7d6c0800000000000000
+      internalID: -4118573667933953225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_61
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 415
+        width: 113
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56c850706e6d14250800000000000000
+      internalID: 5927254868044909669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_62
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 415
+        width: 111
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf8210b9d1ec81860800000000000000
+      internalID: 7500971805935479036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_63
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 383
+        width: 13
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdb5104ed245d82d0800000000000000
+      internalID: -3274868797952926757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_64
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 383
+        width: 33
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 297da3bc1bbe16660800000000000000
+      internalID: 7377436813460952978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_65
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 383
+        width: 74
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ff5295372115e3b0800000000000000
+      internalID: -5483958111153528840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_66
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 383
+        width: 104
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7238ace25201b7f0800000000000000
+      internalID: -598694720282545538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_67
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 383
+        width: 113
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a533a74699dbfa60800000000000000
+      internalID: 7708994426644936101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_68
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 383
+        width: 111
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f75decc63562ba210800000000000000
+      internalID: 1345211053449860479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_69
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 212
+        width: 128
+        height: 156
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd0152e537bb38a10800000000000000
+      internalID: 1910576771110342875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_70
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 166
+        width: 128
+        height: 202
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7866d7dac2a3fb920800000000000000
+      internalID: 3008187039670429319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_71
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 86
+        width: 128
+        height: 282
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 354fd3ed4c3cc44b0800000000000000
+      internalID: -5454769798342904749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_72
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 12
+        width: 128
+        height: 356
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a55496b351382540800000000000000
+      internalID: 4983287223300674982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - La Tale - Traps_73
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 7
+        width: 128
+        height: 361
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bad718633c1c8a4a0800000000000000
+      internalID: -6581797811224740437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
