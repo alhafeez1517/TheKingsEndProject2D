@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AssassinController : MonoBehaviour
 {
-    [SerializeField] float Health = 100.0f;
+    [SerializeField] int health = 5;
+    [SerializeField] int deathRewinds = 3;
     [SerializeField] float movementSpeed = 4.0f;
     [SerializeField] float jumpForce = 7.5f;
     [SerializeField] float rollForce = 6.0f;
@@ -24,6 +26,7 @@ public class AssassinController : MonoBehaviour
     private bool rollingAnimationIsReady = true;
     private bool rolling = false;
     private bool onWall = false;
+    private bool isDead = false;
     private float inputX;
 
     // Start is called before the first frame update
@@ -41,159 +44,163 @@ public class AssassinController : MonoBehaviour
     {
         inputX = Input.GetAxis("Horizontal");
 
-        if (rollingIsReady == true)
+        if (isDead == false)
         {
 
-            // Direction
-            if (assassinColliders.SlidingState() == false && inputX > 0)
+            if (rollingIsReady == true)
             {
-                AssassinDirection.localScale = new Vector2(1, 1);
-            }
-            else if (assassinColliders.SlidingState() == false && inputX < 0)
-            {
-                AssassinDirection.localScale = new Vector2(-1, 1);
-            }
 
-            // Roll
-            if (Input.GetKeyDown("left shift") && assassinColliders.GroundedState() == true)
-            {
-                rollingIsReady = false;
-                rolling = true;
-                Invoke("RollCooldown", 1);
-                rbody.AddForce(new Vector2(AssassinDirection.localScale.x * rollForce, rbody.velocity.y), ForceMode2D.Impulse);
-            }
+                // Direction
+                if (assassinColliders.SlidingState() == false && inputX > 0)
+                {
+                    AssassinDirection.localScale = new Vector2(1, 1);
+                }
+                else if (assassinColliders.SlidingState() == false && inputX < 0)
+                {
+                    AssassinDirection.localScale = new Vector2(-1, 1);
+                }
 
-            // Horizontal movement
-            if (rolling == false || assassinColliders.GroundedState() == true && assassinColliders.SlidingState() == true)
-            {
-                rbody.velocity = new Vector2(0, rbody.velocity.y);
-                rbody.velocity = new Vector2(inputX * movementSpeed, rbody.velocity.y);
-            }
-        }
+                // Roll
+                if (Input.GetKeyDown("left shift") && assassinColliders.GroundedState() == true)
+                {
+                    rollingIsReady = false;
+                    rolling = true;
+                    Invoke("RollCooldown", 1);
+                    rbody.AddForce(new Vector2(AssassinDirection.localScale.x * rollForce, rbody.velocity.y), ForceMode2D.Impulse);
+                }
 
-        // Wall Sliding    
-        if (onWall == false && assassinColliders.GroundedState() == false && assassinColliders.SlidingState() == true && rbody.velocity.y < 0)
-        {
-            if (AssassinDirection.localScale.x == -1)
-            {
-                Instantiate(slideDust, spawnDustR.position, gameObject.transform.localRotation);
-            }
-            else if (AssassinDirection.localScale.x == 1)
-            {
-                Instantiate(slideDust, spawnDustR.position, gameObject.transform.localRotation);
+                // Horizontal movement
+                if (rolling == false || assassinColliders.GroundedState() == true && assassinColliders.SlidingState() == true)
+                {
+                    rbody.velocity = new Vector2(0, rbody.velocity.y);
+                    rbody.velocity = new Vector2(inputX * movementSpeed, rbody.velocity.y);
+                }
             }
 
-            rbody.gravityScale = gravityScale;
-            onWall = true;
-            extrajump = true;
-        }
-        else if (onWall == true && assassinColliders.SlidingState() == false)
-        {
-            rbody.gravityScale = gravityScale * 2;
-            onWall = false;
-        }
-        else if (onWall == true && assassinColliders.GroundedState() == true)
-        {
-            rbody.gravityScale = gravityScale * 2;
-            onWall = false;
-        }
-
-        // Jump
-        if (Input.GetKeyDown(KeyCode.W) && assassinColliders.GroundedState() == true || Input.GetKeyDown(KeyCode.W) && extrajump == true)
-        {
-            rbody.gravityScale = gravityScale * 2;
-            rbody.velocity = new Vector2(rbody.velocity.x, jumpForce);
-            extrajump = false;
-        }
-
-        // Attack
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    Debug.Log("Attack");
-        //}
-
-        // Block
-        if (Input.GetMouseButtonDown(1))
-        {
-            Debug.Log("Block");
-        }
-
-        // Counter attack on perfect block      
-
-        // Jump animation 
-        if (rbody.velocity.y > 0)
-        {
-            animator.SetBool("Jump", true);
-        }
-        else if (rbody.velocity.y < 0)
-        {
-            animator.SetBool("Jump", false);
-            animator.SetBool("Fall", true);
-        }
-        else if (rbody.velocity.y == 0)
-        {
-            animator.SetBool("Fall", false);
-        }
-
-        // Run animation
-        if (assassinColliders.GroundedState() == true)
-        {
-            if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
+            // Wall Sliding    
+            if (onWall == false && assassinColliders.GroundedState() == false && assassinColliders.SlidingState() == true && rbody.velocity.y < 0)
             {
-                animator.SetBool("Run", true);
+                if (AssassinDirection.localScale.x == -1)
+                {
+                    Instantiate(slideDust, spawnDustR.position, gameObject.transform.localRotation);
+                }
+                else if (AssassinDirection.localScale.x == 1)
+                {
+                    Instantiate(slideDust, spawnDustR.position, gameObject.transform.localRotation);
+                }
+
+                rbody.gravityScale = gravityScale;
+                onWall = true;
+                extrajump = true;
             }
-            else if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
+            else if (onWall == true && assassinColliders.SlidingState() == false)
             {
-                animator.SetBool("Run", false);
+                rbody.gravityScale = gravityScale * 2;
+                onWall = false;
             }
-        }
-        else if (assassinColliders.GroundedState() == false)
-        {
-            if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
+            else if (onWall == true && assassinColliders.GroundedState() == true)
             {
-                animator.SetBool("Run", false);
+                rbody.gravityScale = gravityScale * 2;
+                onWall = false;
             }
-        }
 
-        // Wall slide animation
-        if (assassinColliders.SlidingState() == true && assassinColliders.GroundedState() == true)
-        {
-            animator.SetBool("Wall Slide", false);
-        }
-        else if (assassinColliders.SlidingState() == true)
-        {
-            animator.SetBool("Wall Slide", true);
-        }
-        else if (assassinColliders.SlidingState() == false)
-        {
-            animator.SetBool("Wall Slide", false);
-        }
+            // Jump
+            if (Input.GetKeyDown(KeyCode.W) && assassinColliders.GroundedState() == true || Input.GetKeyDown(KeyCode.W) && extrajump == true)
+            {
+                rbody.gravityScale = gravityScale * 2;
+                rbody.velocity = new Vector2(rbody.velocity.x, jumpForce);
+                extrajump = false;
+            }
 
-        // Roll animation
-        if (rollingAnimationIsReady == true && Input.GetKeyUp("left shift"))
-        {
-            rollingAnimationIsReady = false;
-            animator.SetTrigger("Roll");
-            Invoke("RollAnimationCooldown", 1);
-        }
+            // Attack
+            //if (Input.GetMouseButtonDown(0))
+            //{
+            //    Debug.Log("Attack");
+            //}
 
-        // Attack animations
-        if (attackAnimationReady == true && Input.GetMouseButtonDown(0))
-        {
-            attackAnimationReady = false;
-            AttackAnimations(Random.Range(0, 3));
-            Invoke("AttackAnimationCooldown", 1);
-        }
+            // Block
+            if (Input.GetMouseButtonDown(1))
+            {
+                Debug.Log("Block");
+            }
 
-        // Idle block animation
-        if (idleBlockAnimationReady == true && Input.GetMouseButtonDown(1))
-        {            
-            idleBlockAnimationReady = false;
-            animator.SetTrigger("Idle Block");
-            Invoke("IdleBlockAnimationCooldown", 1);
-        }
+            // Counter attack on perfect block      
 
-        // Block attack animation
+            // Jump animation 
+            if (rbody.velocity.y > 0)
+            {
+                animator.SetBool("Jump", true);
+            }
+            else if (rbody.velocity.y < 0)
+            {
+                animator.SetBool("Jump", false);
+                animator.SetBool("Fall", true);
+            }
+            else if (rbody.velocity.y == 0)
+            {
+                animator.SetBool("Fall", false);
+            }
+
+            // Run animation
+            if (assassinColliders.GroundedState() == true)
+            {
+                if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
+                {
+                    animator.SetBool("Run", true);
+                }
+                else if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
+                {
+                    animator.SetBool("Run", false);
+                }
+            }
+            else if (assassinColliders.GroundedState() == false)
+            {
+                if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
+                {
+                    animator.SetBool("Run", false);
+                }
+            }
+
+            // Wall slide animation
+            if (assassinColliders.SlidingState() == true && assassinColliders.GroundedState() == true)
+            {
+                animator.SetBool("Wall Slide", false);
+            }
+            else if (assassinColliders.SlidingState() == true)
+            {
+                animator.SetBool("Wall Slide", true);
+            }
+            else if (assassinColliders.SlidingState() == false)
+            {
+                animator.SetBool("Wall Slide", false);
+            }
+
+            // Roll animation
+            if (rollingAnimationIsReady == true && Input.GetKeyUp("left shift"))
+            {
+                rollingAnimationIsReady = false;
+                animator.SetTrigger("Roll");
+                Invoke("RollAnimationCooldown", 1);
+            }
+
+            // Attack animations
+            if (attackAnimationReady == true && Input.GetMouseButtonDown(0))
+            {
+                attackAnimationReady = false;
+                AttackAnimations(Random.Range(0, 3));
+                Invoke("AttackAnimationCooldown", 1);
+            }
+
+            // Idle block animation
+            if (idleBlockAnimationReady == true && Input.GetMouseButtonDown(1))
+            {
+                idleBlockAnimationReady = false;
+                animator.SetTrigger("Idle Block");
+                Invoke("IdleBlockAnimationCooldown", 1);
+            }
+
+            // Block attack animation
+        }
     }
 
     void RollCooldown()
@@ -231,5 +238,29 @@ public class AssassinController : MonoBehaviour
     void IdleBlockAnimationCooldown()
     {
         idleBlockAnimationReady = true;
+    }
+
+    public void HurtPlayer()
+    {
+        if (health - 1 > 0)
+        {
+            health--;
+            animator.SetTrigger("Hurt");
+        }
+        else if (health - 1 == 0)
+        {
+            health--;
+            animator.SetTrigger("Rewind Death");
+            isDead = true;
+            if (deathRewinds == 0)
+            {
+                Invoke("RestScene", 3);
+            }
+        }
+    }
+
+    private void RestScene()
+    {
+        SceneManager.LoadScene("Experimental Scene");
     }
 }

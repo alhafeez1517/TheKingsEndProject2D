@@ -4,25 +4,42 @@ using UnityEngine;
 
 public class Hurt_Player : MonoBehaviour
 {
-    private Player player;
+    private AssassinController assassinController;
+    private float damageStartTime;
+    private bool inTrap = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();   
+        assassinController = GameObject.FindGameObjectWithTag("Player").GetComponent<AssassinController>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            GameObject.Destroy(gameObject);
+            damageStartTime = Time.realtimeSinceStartup;
+            inTrap = true;
+            assassinController.HurtPlayer();
         }
     }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            inTrap = false;
+        }
+    }
+
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (inTrap == true && Time.realtimeSinceStartup - damageStartTime >= 1)
+        {
+            assassinController.HurtPlayer();
+            damageStartTime = Time.realtimeSinceStartup;
+        }
     }
 }
