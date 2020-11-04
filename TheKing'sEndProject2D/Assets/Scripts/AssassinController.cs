@@ -27,6 +27,7 @@ public class AssassinController : MonoBehaviour
     private bool rolling = false;
     private bool onWall = false;
     private bool isDead = false;
+    public List<AssassinTransform> assassinTranforms;    
     private float inputX;
 
     // Start is called before the first frame update
@@ -34,6 +35,7 @@ public class AssassinController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         rbody = GetComponent<Rigidbody2D>();
+        assassinTranforms = new List<AssassinTransform>();
         AssassinDirection = transform;
         assassinColliders = transform.Find("Assassin_Ground_Collider").GetComponent<AssassinColliders>();
         spawnDustR = transform.Find("Assassin_Wall_Slide_R").GetComponent<Transform>();
@@ -201,6 +203,24 @@ public class AssassinController : MonoBehaviour
 
             // Block attack animation
         }
+        else if (isDead == true)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                transform.position = new Vector3(assassinTranforms[assassinTranforms.Count-1].positionX, assassinTranforms[assassinTranforms.Count-1].positionY, assassinTranforms[assassinTranforms.Count-1].positionZ);
+                transform.localScale = new Vector3(assassinTranforms[assassinTranforms.Count - 1].localScaleX, 1, 1);
+                Debug.Log(assassinTranforms.Count - 1);
+                assassinTranforms.RemoveAt(assassinTranforms.Count - 1);                
+            }
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (isDead == false)
+        {            
+            assassinTranforms.Add(new AssassinTransform (transform.position.x, transform.position.y, transform.position.z, transform.localScale.x));            
+        }
     }
 
     void RollCooldown()
@@ -250,6 +270,7 @@ public class AssassinController : MonoBehaviour
         else if (health - 1 == 0)
         {
             health--;
+            animator.SetBool("Idle", false);
             animator.SetTrigger("Rewind Death");
             isDead = true;
             if (deathRewinds == 0)
@@ -261,6 +282,22 @@ public class AssassinController : MonoBehaviour
 
     private void RestScene()
     {
-        SceneManager.LoadScene("Experimental Scene");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public class AssassinTransform
+    {
+        public float positionX { get; set; }
+        public float positionY { get; set; }
+        public float positionZ { get; set; }
+        public float localScaleX { get; set; }
+
+        public AssassinTransform(float x, float y, float z, float scaleZ)
+        {
+            this.positionX = x;
+            this.positionY = y;
+            this.positionZ = z;
+            this.localScaleX = scaleZ;
+        }
     }
 }
