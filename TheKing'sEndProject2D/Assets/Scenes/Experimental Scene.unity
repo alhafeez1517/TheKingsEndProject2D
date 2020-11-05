@@ -1409,30 +1409,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7788571722233373710, guid: cfdbf5bc18b234b41bc8fa82f78ca436,
-        type: 3}
-      propertyPath: health
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7788571722233373710, guid: cfdbf5bc18b234b41bc8fa82f78ca436,
-        type: 3}
-      propertyPath: deathRewinds
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7788571722233373710, guid: cfdbf5bc18b234b41bc8fa82f78ca436,
-        type: 3}
-      propertyPath: currentHealth
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7788571722233373749, guid: cfdbf5bc18b234b41bc8fa82f78ca436,
         type: 3}
       propertyPath: m_Name
       value: Assassin
-      objectReference: {fileID: 0}
-    - target: {fileID: 7788571722233373749, guid: cfdbf5bc18b234b41bc8fa82f78ca436,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfdbf5bc18b234b41bc8fa82f78ca436, type: 3}
