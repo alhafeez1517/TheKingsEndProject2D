@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class AssassinController : MonoBehaviour
 {
     [SerializeField] int health = 5;
+    [SerializeField] int currentHealth = 5;
     [SerializeField] int deathRewinds = 3;
     [SerializeField] float movementSpeed = 4.0f;
     [SerializeField] float jumpForce = 7.5f;
@@ -27,7 +28,8 @@ public class AssassinController : MonoBehaviour
     private bool rolling = false;
     private bool onWall = false;
     private bool isDead = false;
-    public List<AssassinTransform> assassinTranforms;    
+    private bool rewinding = false;
+    private List<AssassinTransform> assassinTranforms;    
     private float inputX;
 
     // Start is called before the first frame update
@@ -203,23 +205,40 @@ public class AssassinController : MonoBehaviour
 
             // Block attack animation
         }
-        else if (isDead == true)
+        // Death Rewind
+        else if (isDead == true && deathRewinds != 0)
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                transform.position = new Vector3(assassinTranforms[assassinTranforms.Count-1].positionX, assassinTranforms[assassinTranforms.Count-1].positionY, assassinTranforms[assassinTranforms.Count-1].positionZ);
-                transform.localScale = new Vector3(assassinTranforms[assassinTranforms.Count - 1].localScaleX, 1, 1);
-                Debug.Log(assassinTranforms.Count - 1);
-                assassinTranforms.RemoveAt(assassinTranforms.Count - 1);                
+                animator.SetBool("Rewind", true);
+                rewinding = true;
             }
+            else if (Input.GetKeyUp(KeyCode.Space))
+            {
+                animator.SetBool("Rewind", false);
+                rewinding = false;
+                assassinTranforms.Clear();
+                if (deathRewinds > 0)
+                {
+                    deathRewinds--;
+                    isDead = false;
+                    currentHealth = health; 
+                }
+            }            
         }
     }
 
     private void FixedUpdate()
     {
         if (isDead == false)
-        {            
-            assassinTranforms.Add(new AssassinTransform (transform.position.x, transform.position.y, transform.position.z, transform.localScale.x));            
+        {
+            assassinTranforms.Add(new AssassinTransform(transform.position.x, transform.position.y, transform.position.z, transform.localScale.x));
+        } 
+        else if (isDead == true && rewinding == true && assassinTranforms.Count - 1 > 0)
+        {
+            transform.position = new Vector3(assassinTranforms[assassinTranforms.Count - 1].positionX, assassinTranforms[assassinTranforms.Count - 1].positionY, assassinTranforms[assassinTranforms.Count - 1].positionZ);
+            transform.localScale = new Vector3(assassinTranforms[assassinTranforms.Count - 1].localScaleX, 1, 1);
+            assassinTranforms.RemoveAt(assassinTranforms.Count - 1);
         }
     }
 
@@ -262,15 +281,14 @@ public class AssassinController : MonoBehaviour
 
     public void HurtPlayer()
     {
-        if (health - 1 > 0)
+        if (currentHealth - 1 > 0)
         {
-            health--;
+            currentHealth--;
             animator.SetTrigger("Hurt");
         }
-        else if (health - 1 == 0)
+        else if (currentHealth - 1 == 0)
         {
-            health--;
-            animator.SetBool("Idle", false);
+            currentHealth--;            
             animator.SetTrigger("Rewind Death");
             isDead = true;
             if (deathRewinds == 0)
@@ -285,7 +303,7 @@ public class AssassinController : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public class AssassinTransform
+    internal class AssassinTransform
     {
         public float positionX { get; set; }
         public float positionY { get; set; }
