@@ -5,12 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class SwitchScene : MonoBehaviour
 {
- 
-  
+   
+   
 
     public void onPlayButton()
     {
-        SceneManager.LoadScene(1);
+
+        Invoke("onPlayClick", 0.6f);
+    }
+
+    public void onPlayClick()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void onOptionsButton()
