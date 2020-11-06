@@ -16,6 +16,7 @@ public class AssassinController : MonoBehaviour
 
     private Animator animator;
     private Rigidbody2D rbody;
+    private BoxCollider2D AssassinBoxCollider2D;
     private Transform AssassinDirection;
     private AssassinColliders assassinColliders;
     private Transform spawnDustR;
@@ -38,6 +39,7 @@ public class AssassinController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         rbody = GetComponent<Rigidbody2D>();
+        AssassinBoxCollider2D = GetComponent<BoxCollider2D>();
         assassinTranforms = new List<AssassinTransform>();
         AssassinDirection = transform;
         assassinColliders = transform.Find("Assassin_Ground_Collider").GetComponent<AssassinColliders>();
@@ -69,6 +71,7 @@ public class AssassinController : MonoBehaviour
                 // Roll
                 if (Input.GetKeyDown("left shift") && assassinColliders.GroundedState() == true)
                 {
+                    AssassinBoxCollider2D.enabled = false;
                     rollingIsReady = false;
                     rolling = true;
                     Invoke("RollCooldown", 1);
@@ -215,14 +218,16 @@ public class AssassinController : MonoBehaviour
         }
         // Death Rewind
         else if (isDead == true && deathRewinds != 0)
-        {
+        {           
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                AssassinBoxCollider2D.enabled = false;
                 animator.SetBool("Rewind", true);
                 rewinding = true;
             }
             else if (Input.GetKeyUp(KeyCode.Space))
             {
+                AssassinBoxCollider2D.enabled = true;
                 animator.SetBool("Rewind", false);
                 rewinding = false;
                 assassinTranforms.Clear();
@@ -255,6 +260,7 @@ public class AssassinController : MonoBehaviour
 
     void RollCooldown()
     {
+        AssassinBoxCollider2D.enabled = true;
         rollingIsReady = true;
         rolling = false;
     }

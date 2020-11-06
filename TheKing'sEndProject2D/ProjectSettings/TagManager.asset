@@ -8,6 +8,8 @@ TagManager:
   - Wall
   - BackGround
   - Trap
+  - Rolling
+  - Traps
   layers:
   - Default
   - TransparentFX
@@ -18,15 +20,15 @@ TagManager:
   - 
   - 
   - Ground
-  - 
-  - 
   - Wall
-  - 
-  - 
-  - 
-  - 
-  - 
   - BackGround
+  - Rolling
+  - Enemy
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
