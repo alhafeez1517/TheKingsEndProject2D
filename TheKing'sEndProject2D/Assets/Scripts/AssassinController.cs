@@ -119,10 +119,10 @@ public class AssassinController : MonoBehaviour
             }
 
             // Attack
-            //if (Input.GetMouseButtonDown(0))
-            //{
-            //    Debug.Log("Attack");
-            //}
+            if (Input.GetMouseButtonDown(0))
+            {
+                Debug.Log("Attack");
+            }
 
             // Block
             if (Input.GetMouseButtonDown(1))
@@ -155,16 +155,22 @@ public class AssassinController : MonoBehaviour
                     animator.SetBool("Run", true);
                 }
                 else if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
-                {
-                    animator.SetBool("Run", false);
+                {                                    
+                    animator.SetBool("Run", false);                    
                 }
             }
             else if (assassinColliders.GroundedState() == false)
             {
-                if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
+                if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
+                {
+                    animator.SetBool("Run", true);
+                    animator.SetBool("Fall", false);
+                }
+                else if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
                 {
                     animator.SetBool("Run", false);
-                }
+                }              
+
             }
 
             // Wall slide animation
@@ -182,7 +188,7 @@ public class AssassinController : MonoBehaviour
             }
 
             // Roll animation
-            if (rollingAnimationIsReady == true && Input.GetKeyUp("left shift"))
+            if (rollingAnimationIsReady == true && Input.GetKeyUp("left shift") && assassinColliders.GroundedState() == true)
             {
                 rollingAnimationIsReady = false;
                 animator.SetTrigger("Roll");
@@ -224,9 +230,10 @@ public class AssassinController : MonoBehaviour
                 {
                     deathRewinds--;
                     isDead = false;
-                    currentHealth = health; 
+                    currentHealth = health;
                 }
-            }            
+            }
+            animator.SetBool("Run", false);
         }
     }
 
