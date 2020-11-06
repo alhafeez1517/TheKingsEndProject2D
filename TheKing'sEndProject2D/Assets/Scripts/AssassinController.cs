@@ -19,6 +19,7 @@ public class AssassinController : MonoBehaviour
     private Transform AssassinDirection;
     private AssassinColliders assassinColliders;
     private Transform spawnDustR;
+    private Transform mainCamera;
 
     private bool attackAnimationReady = true;
     private bool idleBlockAnimationReady = true;
@@ -41,6 +42,7 @@ public class AssassinController : MonoBehaviour
         AssassinDirection = transform;
         assassinColliders = transform.Find("Assassin_Ground_Collider").GetComponent<AssassinColliders>();
         spawnDustR = transform.Find("Assassin_Wall_Slide_R").GetComponent<Transform>();
+        mainCamera = GameObject.Find("Main Camera").GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -76,7 +78,7 @@ public class AssassinController : MonoBehaviour
                 // Horizontal movement
                 if (rolling == false || assassinColliders.GroundedState() == true && assassinColliders.SlidingState() == true)
                 {
-                    rbody.velocity = new Vector2(0, rbody.velocity.y);
+                    //rbody.velocity = new Vector2(0, rbody.velocity.y);
                     rbody.velocity = new Vector2(inputX * movementSpeed, rbody.velocity.y);
                 }
             }
@@ -230,6 +232,8 @@ public class AssassinController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        mainCamera.position = new Vector3(transform.position.x, transform.position.y, -10);
+
         if (isDead == false)
         {
             assassinTranforms.Add(new AssassinTransform(transform.position.x, transform.position.y, transform.position.z, transform.localScale.x));
