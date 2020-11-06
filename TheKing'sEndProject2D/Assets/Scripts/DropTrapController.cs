@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DropTrapController : MonoBehaviour
 {
+    [SerializeField] float timeToDestroy = 2f;
     Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
@@ -15,7 +16,8 @@ public class DropTrapController : MonoBehaviour
         if (collision.gameObject.tag.Equals("Player"))
         {
             Invoke("DropPlat", .1f);
-            Destroy(gameObject, 2f);
+            GetComponent<Collider2D>().enabled = false;
+            Destroy(gameObject, timeToDestroy);
         }
     }
     void DropPlat()
