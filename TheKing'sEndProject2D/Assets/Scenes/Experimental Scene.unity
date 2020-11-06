@@ -783,7 +783,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &1197937555
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1423,6 +1423,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1345200246378154259, guid: cfdbf5bc18b234b41bc8fa82f78ca436,
+        type: 3}
+      propertyPath: m_TagString
+      value: MainCamera
+      objectReference: {fileID: 0}
     - target: {fileID: 7788571722233373705, guid: cfdbf5bc18b234b41bc8fa82f78ca436,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1482,6 +1487,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Assassin
+      objectReference: {fileID: 0}
+    - target: {fileID: 7946225184191684286, guid: cfdbf5bc18b234b41bc8fa82f78ca436,
+        type: 3}
+      propertyPath: orthographic
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfdbf5bc18b234b41bc8fa82f78ca436, type: 3}
