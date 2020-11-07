@@ -16,7 +16,7 @@ public class SwitchScene : MonoBehaviour
 
     public void onPlayClick()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("Level_1");
     }
 
     public void onOptionsButton()

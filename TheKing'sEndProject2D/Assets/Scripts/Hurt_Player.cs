@@ -7,6 +7,7 @@ public class Hurt_Player : MonoBehaviour
     private AssassinController assassinController;
     private float damageStartTime;
     private bool inTrap = false;
+    private bool spike_Status;
 
     // Start is called before the first frame update
     void Start()
