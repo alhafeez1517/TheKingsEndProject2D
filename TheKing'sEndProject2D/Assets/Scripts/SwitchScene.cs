@@ -7,6 +7,13 @@ using TMPro;
 
 public class SwitchScene : MonoBehaviour
 {
+
+    public AudioSource audioSource;
+    public Toggle audioToggle;
+    public bool musicOn;
+    public bool musicOff;
+
+
     #region Buttons
     public Button playButton;
     public Button optionsButton;
@@ -21,6 +28,9 @@ public class SwitchScene : MonoBehaviour
     public Button rMBButton;
     public Button shiftButton;
     public Button spaceButton;
+    public Button easyButton;
+    public Button mediumButton;
+    public Button hardButton;
     #endregion
     [Space(10)]
     #region Animations
@@ -35,8 +45,16 @@ public class SwitchScene : MonoBehaviour
     #region Texts
     public TMP_Text gameTitle;
     public TMP_Text gameTitleInstruct;
+    public TMP_Text gameDifficulty;
+    public TMP_Text gameAudio;
+
     #endregion
 
+    public void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        musicOn = true;
+    }
 
 
 
@@ -61,9 +79,38 @@ public class SwitchScene : MonoBehaviour
         SceneManager.LoadScene("Level_1");
     }
 
+    public void onMusicToggle(bool toggle)
+    {
+        if (musicOn)
+        {
+            audioSource.Stop();
+            musicOff = true;
+            musicOn = false;
+        }
+        else if (musicOff)
+        {
+            audioSource.Play();
+            musicOn = true;
+            musicOff = false;
+        }
+    }
+
     public void onOptionsButton()
     {
+        playButton.gameObject.SetActive(false);
+        optionsButton.gameObject.SetActive(false);
+        instructionsButton.gameObject.SetActive(false);
+        quitButton.gameObject.SetActive(false);
+        backButtonInstruct.gameObject.SetActive(true);
+        gameTitle.gameObject.SetActive(false);
+        gameDifficulty.gameObject.SetActive(true);
+        gameAudio.gameObject.SetActive(true);
+        audioToggle.gameObject.SetActive(true);
 
+        gameTitleInstruct.gameObject.SetActive(true);
+        easyButton.gameObject.SetActive(true);
+        mediumButton.gameObject.SetActive(true);
+        hardButton.gameObject.SetActive(true);
     }
 
     public void onBackButtonInstruct()
@@ -74,6 +121,9 @@ public class SwitchScene : MonoBehaviour
         quitButton.gameObject.SetActive(true);
         backButtonInstruct.gameObject.SetActive(false);
         gameTitle.gameObject.SetActive(true);
+        gameDifficulty.gameObject.SetActive(false);
+        gameAudio.gameObject.SetActive(false);
+        audioToggle.gameObject.SetActive(false);
 
         gameTitleInstruct.gameObject.SetActive(false);
         wButton.gameObject.SetActive(false);
@@ -83,6 +133,9 @@ public class SwitchScene : MonoBehaviour
         rMBButton.gameObject.SetActive(false);
         shiftButton.gameObject.SetActive(false);
         spaceButton.gameObject.SetActive(false);
+        easyButton.gameObject.SetActive(false);
+        mediumButton.gameObject.SetActive(false);
+        hardButton.gameObject.SetActive(false);
 
         run.gameObject.SetActive(false);
         jump.gameObject.SetActive(false);
