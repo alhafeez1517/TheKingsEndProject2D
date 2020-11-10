@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//The bulk of this code was taken from youtuber Turbo Make Games
+
 public class TimeController : MonoBehaviour
 {
    public Text timeCounter;
