@@ -6,13 +6,14 @@ using UnityEngine.SceneManagement;
 public class AssassinController : MonoBehaviour
 {
     [SerializeField] int health = 5;
-    [SerializeField] int currentHealth = 5;
+    [SerializeField] int currentHealth;
     [SerializeField] int deathRewinds = 3;
     [SerializeField] float movementSpeed = 4.0f;
     [SerializeField] float jumpForce = 7.5f;
     [SerializeField] float rollForce = 6.0f;
     [SerializeField] float gravityScale = 0.5f;
     [SerializeField] GameObject slideDust;
+    public HealthController healthController;
 
     private Animator animator;
     private Rigidbody2D rbody;
@@ -37,6 +38,8 @@ public class AssassinController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        currentHealth = health;
+        healthController.SetMaxHealth(health);
         animator = GetComponent<Animator>();
         rbody = GetComponent<Rigidbody2D>();
         AssassinBoxCollider2D = GetComponent<BoxCollider2D>();
@@ -252,6 +255,7 @@ public class AssassinController : MonoBehaviour
         } 
         else if (isDead == true && rewinding == true && assassinTranforms.Count - 1 > 0)
         {
+            healthController.SetMaxHealth(5);
             transform.position = new Vector3(assassinTranforms[assassinTranforms.Count - 1].positionX, assassinTranforms[assassinTranforms.Count - 1].positionY, assassinTranforms[assassinTranforms.Count - 1].positionZ);
             transform.localScale = new Vector3(assassinTranforms[assassinTranforms.Count - 1].localScaleX, 1, 1);
             assassinTranforms.RemoveAt(assassinTranforms.Count - 1);
@@ -301,11 +305,13 @@ public class AssassinController : MonoBehaviour
         if (currentHealth - 1 > 0)
         {
             currentHealth--;
+            healthController.SetHealth(currentHealth);
             animator.SetTrigger("Hurt");
         }
         else if (currentHealth - 1 == 0)
         {
-            currentHealth--;            
+            currentHealth--;
+            healthController.SetHealth(currentHealth);
             animator.SetTrigger("Rewind Death");
             isDead = true;
             if (deathRewinds == 0)

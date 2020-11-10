@@ -7,7 +7,12 @@ public class HealthController : MonoBehaviour
 {
     public Slider healthSlider;
 
-    void SetHealth(float health)
+    public void SetMaxHealth(float health)
+    {
+        healthSlider.maxValue = health;
+        healthSlider.value = health;
+    }
+    public void SetHealth(float health)
     {
         healthSlider.value = health;
     }
