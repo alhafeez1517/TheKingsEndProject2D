@@ -143,18 +143,21 @@ public class AssassinController : MonoBehaviour
             // Counter attack on perfect block      
 
             // Jump animation 
-            if (rbody.velocity.y > 0)
-            {
-                animator.SetBool("Jump", true);
-            }
-            else if (rbody.velocity.y < 0)
-            {
-                animator.SetBool("Jump", false);
-                animator.SetBool("Fall", true);
-            }
-            else if (rbody.velocity.y == 0)
+            if (rbody.velocity.y == 0 || assassinColliders.GroundedState() == true)
             {
                 animator.SetBool("Fall", false);
+            }
+            else
+            {
+                if (rbody.velocity.y > 0)
+                {
+                    animator.SetBool("Jump", true);
+                }
+                else if (rbody.velocity.y < 0)
+                {
+                    animator.SetBool("Jump", false);
+                    animator.SetBool("Fall", true);
+                }
             }
 
             // Run animation
