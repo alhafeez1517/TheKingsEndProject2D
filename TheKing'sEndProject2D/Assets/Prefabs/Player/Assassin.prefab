@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7192040094973362406
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6024368525182324514}
+  m_Layer: 0
+  m_Name: Assassin_Wall_Slide_L
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6024368525182324514
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7192040094973362406}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.365, y: 1.58, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7788571722233373705}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7788571721574015399
 GameObject:
   m_ObjectHideFlags: 0
@@ -28,7 +58,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7788571722233373705}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7788571722233373749
 GameObject:
@@ -66,6 +96,7 @@ Transform:
   - {fileID: 7788571722922177360}
   - {fileID: 7788571722391627876}
   - {fileID: 7788571722482738841}
+  - {fileID: 6024368525182324514}
   - {fileID: 7788571721574015396}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -91,6 +122,7 @@ MonoBehaviour:
   gravityScale: 0.5
   slideDust: {fileID: 1038168246061390451, guid: 8b8c8cc6774fb074cb9139cc631b108e,
     type: 3}
+  healthController: {fileID: 0}
 --- !u!212 &7788571722233373704
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -219,7 +251,7 @@ GameObject:
   - component: {fileID: 7788571722391627876}
   - component: {fileID: 7788571722391627877}
   m_Layer: 0
-  m_Name: 'Assassin_Wall_Collider_L '
+  m_Name: Assassin_Wall_Collider_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

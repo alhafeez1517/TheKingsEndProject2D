@@ -13,13 +13,14 @@ public class AssassinController : MonoBehaviour
     [SerializeField] float rollForce = 6.0f;
     [SerializeField] float gravityScale = 0.5f;
     [SerializeField] GameObject slideDust;
-    public HealthController healthController;
+    [SerializeField] HealthController healthController;
 
     private Animator animator;
     private Rigidbody2D rbody;
     private BoxCollider2D AssassinBoxCollider2D;
     private Transform AssassinDirection;
     private AssassinColliders assassinColliders;
+    //private Transform spawnDustL;
     private Transform spawnDustR;
     private Transform mainCamera;
 
@@ -46,6 +47,7 @@ public class AssassinController : MonoBehaviour
         assassinTranforms = new List<AssassinTransform>();
         AssassinDirection = transform;
         assassinColliders = transform.Find("Assassin_Ground_Collider").GetComponent<AssassinColliders>();
+        //spawnDustL = transform.Find("Assassin_Wall_Slide_L").GetComponent<Transform>();
         spawnDustR = transform.Find("Assassin_Wall_Slide_R").GetComponent<Transform>();
         mainCamera = GameObject.Find("Main Camera").GetComponent<Transform>();
     }
@@ -92,10 +94,12 @@ public class AssassinController : MonoBehaviour
             // Wall Sliding    
             if (onWall == false && assassinColliders.GroundedState() == false && assassinColliders.SlidingState() == true && rbody.velocity.y < 0)
             {
+                //Left
                 if (AssassinDirection.localScale.x == -1)
                 {
-                    Instantiate(slideDust, spawnDustR.position, gameObject.transform.localRotation);
+                    Instantiate(slideDust, spawnDustR.position, Quaternion.Euler(gameObject.transform.rotation.x, 180, gameObject.transform.rotation.z));
                 }
+                //Right
                 else if (AssassinDirection.localScale.x == 1)
                 {
                     Instantiate(slideDust, spawnDustR.position, gameObject.transform.localRotation);
@@ -255,7 +259,7 @@ public class AssassinController : MonoBehaviour
         } 
         else if (isDead == true && rewinding == true && assassinTranforms.Count - 1 > 0)
         {
-            healthController.SetMaxHealth(5);
+            healthController.SetMaxHealth(health);
             transform.position = new Vector3(assassinTranforms[assassinTranforms.Count - 1].positionX, assassinTranforms[assassinTranforms.Count - 1].positionY, assassinTranforms[assassinTranforms.Count - 1].positionZ);
             transform.localScale = new Vector3(assassinTranforms[assassinTranforms.Count - 1].localScaleX, 1, 1);
             assassinTranforms.RemoveAt(assassinTranforms.Count - 1);
@@ -316,6 +320,7 @@ public class AssassinController : MonoBehaviour
             isDead = true;
             if (deathRewinds == 0)
             {
+                animator.SetTrigger("Permanent Death");
                 Invoke("RestScene", 3);
             }
         }

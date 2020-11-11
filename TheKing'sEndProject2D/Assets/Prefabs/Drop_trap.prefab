@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8671061012772963962}
+  - component: {fileID: 4816843502185366922}
   - component: {fileID: 3952903245218705513}
   - component: {fileID: 3809048710116791529}
   - component: {fileID: 639141479620487680}
-  - component: {fileID: 4816843502185366922}
   m_Layer: 0
   m_Name: Drop_trap
   m_TagString: Ground
@@ -34,6 +34,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4816843502185366922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5446881218161762034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df11fbe0905c96344a3a9682172d80f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBeforeDrop: 0.5
+  timeToDestroy: 5
+  destroyOnContact: 0
 --- !u!212 &3952903245218705513
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -132,15 +147,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 5
---- !u!114 &4816843502185366922
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5446881218161762034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df11fbe0905c96344a3a9682172d80f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
