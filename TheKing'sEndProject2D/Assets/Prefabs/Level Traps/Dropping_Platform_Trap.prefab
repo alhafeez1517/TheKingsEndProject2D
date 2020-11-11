@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3809048710116791529}
   - component: {fileID: 639141479620487680}
   m_Layer: 0
-  m_Name: Drop_trap
+  m_Name: Dropping_Platform_Trap
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,8 +47,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBeforeDrop: 0.5
-  timeToDestroy: 5
-  destroyOnContact: 0
+  delayTime: 1
+  isReturning: 0
 --- !u!212 &3952903245218705513
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -134,7 +134,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5446881218161762034}
-  m_BodyType: 1
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
