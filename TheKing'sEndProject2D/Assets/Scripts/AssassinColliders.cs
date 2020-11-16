@@ -8,11 +8,16 @@ public class AssassinColliders : MonoBehaviour
     private bool grounded;
     private bool sliding;
 
+    private Transform playerDefTransform;
+
     // Start is called before the first frame update
     void Start()
     {
         grounded = false;
         sliding = false;
+
+
+
     }
 
     // Update is called once per frame
@@ -42,6 +47,8 @@ public class AssassinColliders : MonoBehaviour
         {
             sliding = true;
         }
+
+
     }
 
     void OnTriggerExit2D(Collider2D other)
@@ -56,5 +63,6 @@ public class AssassinColliders : MonoBehaviour
         {
             sliding = false;
         }
+
     }
 }
