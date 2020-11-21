@@ -48,7 +48,7 @@ public class MovingPlatform : MonoBehaviour
         }
         
     }
-
+    /*
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.CompareTag("Player") && other.GetType().ToString() == "UnityEngine.BoxCollider2D")
@@ -64,5 +64,6 @@ public class MovingPlatform : MonoBehaviour
             other.gameObject.transform.parent = playerDefTransform;
         }
     }
+    */
 
 }
