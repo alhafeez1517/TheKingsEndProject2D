@@ -8,12 +8,14 @@ public class AssassinController : MonoBehaviour
     [SerializeField] int health = 5;
     [SerializeField] int currentHealth;
     [SerializeField] int deathRewinds = 3;
+    [SerializeField] int currentRewinds;
     [SerializeField] float movementSpeed = 4.0f;
     [SerializeField] float jumpForce = 7.5f;
     [SerializeField] float rollForce = 6.0f;
     [SerializeField] float gravityScale = 0.5f;
     [SerializeField] GameObject slideDust;
     [SerializeField] HealthController healthController;
+    [SerializeField] TimeRewindController rewindController;
 
     private Animator animator;
     private Rigidbody2D rbody;
@@ -40,7 +42,9 @@ public class AssassinController : MonoBehaviour
     void Start()
     {
         currentHealth = health;
+        currentRewinds = deathRewinds;
         healthController.SetMaxHealth(health);
+        rewindController.SetMaxMana(deathRewinds);
         animator = GetComponent<Animator>();
         rbody = GetComponent<Rigidbody2D>();
         AssassinBoxCollider2D = GetComponent<BoxCollider2D>();
@@ -244,6 +248,7 @@ public class AssassinController : MonoBehaviour
                 if (deathRewinds > 0)
                 {
                     deathRewinds--;
+                    rewindController.SetMana(currentRewinds);
                     isDead = false;
                     currentHealth = health;
                 }
