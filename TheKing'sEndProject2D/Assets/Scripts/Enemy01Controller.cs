@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,31 +9,38 @@ public class Enemy01Controller : MonoBehaviour
     [SerializeField] int enemyHelath = 3;
     [SerializeField] int enemyCurrentHealth;
     [SerializeField] float enemySpeed = 3f;
-    [SerializeField] float invokeIdleDist = 10f;
+    //If linear distance > 10, state=idle.
+    [SerializeField] float invokePatrolDist = 10f;
+    //If 10 > linear distance > 5, state=patrol(Wanders).
     [SerializeField] float invokeChaseDist = 5f;
+    //If linear distance < 5, state=chase(Follows player).
     [SerializeField] float invokeAttackDist = 3f;
     //Public parameters.
     public int enemyState;
+    public GameObject playerObj;
+    public states currentEnemyState;
+    public float linearDistance;
     //Private parameters.
     private Animator eAnimator;
     private Rigidbody2D eRb;
     private BoxCollider2D eBxColl;
     private Transform eTransform;
-    private enum states{IDLE,PATROL,CHASE,DASH,ATTACK}
+    public enum states{IDLE,PATROL,CHASE,DASH,ATTACK}
     // Start is called before the first frame update
     void Start()
     {
-        enemyState = (int)states.IDLE;
+        enemyState = (int)states.IDLE;        
     }
 
     // Update is called once per frame
     void Update()
     {
+        linearDistance = Vector2.Distance(playerObj.transform.position, this.transform.position);
         CheckState();
     }
     void CheckState()
     {
-        switch (states)
+        switch (currentEnemyState)
         {
             case states.IDLE:
                 EnemyIdle();
@@ -51,4 +59,23 @@ public class Enemy01Controller : MonoBehaviour
                 break;
         }
     }
+
+    private void EnemyAttack() { }
+
+    private void EnemyDash()
+    {
+        throw new NotImplementedException();
+    }
+
+    private void EnemyChase()
+    {
+        throw new NotImplementedException();
+    }
+
+    private void EnemyPatrol()
+    {
+        throw new NotImplementedException();
+    }
+
+    private void EnemyIdle() { }
 }
