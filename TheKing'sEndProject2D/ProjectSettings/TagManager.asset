@@ -10,6 +10,8 @@ TagManager:
   - Trap
   - Rolling
   - Traps
+  - Enemy
+  - PatrolPivot
   layers:
   - Default
   - TransparentFX

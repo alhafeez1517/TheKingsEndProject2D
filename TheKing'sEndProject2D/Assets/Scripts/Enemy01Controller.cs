@@ -20,11 +20,13 @@ public class Enemy01Controller : MonoBehaviour
     public GameObject playerObj;
     public states currentEnemyState;
     public float linearDistance;
+    public Transform groundDetector;
     //Private parameters.
     private Animator eAnimator;
     private Rigidbody2D eRb;
     private BoxCollider2D eBxColl;
     private Transform eTransform;
+    private bool eIsMovingRight;
     public enum states{IDLE,PATROL,CHASE,DASH,ATTACK}
     // Start is called before the first frame update
     void Start()
