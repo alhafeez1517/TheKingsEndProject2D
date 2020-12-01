@@ -31,7 +31,8 @@ public class Enemy01Controller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        enemyState = (int)states.IDLE;        
+        eAnimator = GetComponent<Animator>();
+        enemyState = (int)states.PATROL;        
     }
 
     // Update is called once per frame
@@ -76,7 +77,23 @@ public class Enemy01Controller : MonoBehaviour
 
     private void EnemyPatrol()
     {
-        throw new NotImplementedException();
+        transform.Translate(Vector2.right*enemySpeed*Time.deltaTime);
+        RaycastHit2D hit2D = Physics2D.Raycast(groundDetector.position, Vector2.down, .1f);
+        if (hit2D.collider == false)
+        {
+            if (eIsMovingRight==true)
+            {
+                transform.eulerAngles = new Vector3(0, -180, 0);
+                eIsMovingRight = false;
+            }
+            else
+            {
+                transform.eulerAngles = new Vector3(0, 0, 0);
+                eIsMovingRight = true;
+            }
+
+        }
+        eAnimator.SetBool("isPatrolling", true);
     }
 
     private void EnemyIdle() { }
