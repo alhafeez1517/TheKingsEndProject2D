@@ -40,6 +40,11 @@ public class Enemy01Controller : MonoBehaviour
     {
         linearDistance = Vector2.Distance(playerObj.transform.position, this.transform.position);
         CheckState();
+
+        // Locking z axis of the enemy object.
+        Vector3 pos = transform.position;
+        pos.z = 0;
+        transform.position = pos;
     }
     void CheckState()
     {
@@ -63,38 +68,57 @@ public class Enemy01Controller : MonoBehaviour
         }
     }
 
-    private void EnemyAttack() { }
+    private void EnemyAttack() 
+    {
+
+        eAnimator.SetBool("isPlayerInRange", true);
+        eAnimator.SetBool("canAttack", true);
+    }
 
     private void EnemyDash()
     {
+        //if player gets closer than 3f, dash to player and turn to attack.
+        //if player get back to between 3f and 5f, back to patrol.
         throw new NotImplementedException();
     }
 
     private void EnemyChase()
     {
-        throw new NotImplementedException();
+        //During patrolling, if the player is closer than 5f but further than 3f, run to the edge of 
+        //the platform on the side that the player is at and wait for the player.
+        
+        //If player leaves the range of 5f, back to Patrol.
+        eAnimator.SetBool("isPatrolling", true);
     }
 
     private void EnemyPatrol()
     {
-        transform.Translate(Vector2.right*enemySpeed*Time.deltaTime);
-        RaycastHit2D hit2D = Physics2D.Raycast(groundDetector.position, Vector2.down, .1f);
-        if (hit2D.collider == false)
+        transform.Translate(Vector2.right * enemySpeed * Time.deltaTime);
+        RaycastHit2D hit2D = Physics2D.Raycast(groundDetector.position, Vector2.down, 1f);
+        if (hit2D.collider == false || hit2D.collider.CompareTag("Wall"))
+        //turns around when the ray no longer hits anything or hits the wall.
         {
-            if (eIsMovingRight==true)
+            if (!hit2D.collider.CompareTag("Player"))//won't go back when hits the player.
             {
-                transform.eulerAngles = new Vector3(0, -180, 0);
-                eIsMovingRight = false;
+                if (eIsMovingRight == true)
+                {
+                    transform.eulerAngles = new Vector3(0, -180, 0);
+                    eIsMovingRight = false;
+                }
+                else
+                {
+                    transform.eulerAngles = new Vector3(0, 0, 0);
+                    eIsMovingRight = true;
+                }
             }
-            else
-            {
-                transform.eulerAngles = new Vector3(0, 0, 0);
-                eIsMovingRight = true;
-            }
-
         }
         eAnimator.SetBool("isPatrolling", true);
     }
 
-    private void EnemyIdle() { }
+    private void EnemyIdle() 
+    {
+        //Won't be transitioned to.
+        eAnimator.SetBool("isPatrolling", false);
+        eAnimator.SetBool("isPlayerInRange", false);
+    }
 }
