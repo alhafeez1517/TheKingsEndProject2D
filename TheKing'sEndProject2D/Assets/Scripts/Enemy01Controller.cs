@@ -6,7 +6,7 @@ using UnityEngine;
 public class Enemy01Controller : MonoBehaviour
 {
     //Adjustables
-    [SerializeField] int enemyHelath = 3;
+    [SerializeField] int enemyHealth = 3;
     [SerializeField] int enemyCurrentHealth;
     [SerializeField] float enemySpeed = 3f;
     //If linear distance > 10, state=idle.
@@ -40,7 +40,6 @@ public class Enemy01Controller : MonoBehaviour
     {
         linearDistance = Vector2.Distance(playerObj.transform.position, this.transform.position);
         CheckState();
-
         // Locking z axis of the enemy object.
         Vector3 pos = transform.position;
         pos.z = 0;
@@ -70,23 +69,64 @@ public class Enemy01Controller : MonoBehaviour
 
     private void EnemyAttack() 
     {
-
+        if (linearDistance < invokeAttackDist)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, playerObj.transform.position, 10f * Time.deltaTime);
+        }
+        
         eAnimator.SetBool("isPlayerInRange", true);
         eAnimator.SetBool("canAttack", true);
+    }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag=="Player")
+        {
+            enemyHealth -= 1;
+        }
     }
 
     private void EnemyDash()
     {
         //if player gets closer than 3f, dash to player and turn to attack.
         //if player get back to between 3f and 5f, back to patrol.
-        throw new NotImplementedException();
+        if (linearDistance <= invokeAttackDist && linearDistance >= invokeChaseDist)
+        {
+            this.transform.position
+
+
+            //Dash to player, ignore gravity.
+        }
+        //Setting animation by setting booleans.
+        eAnimator.SetBool("isPlayerInrange", true);
+        eAnimator.SetBool("canAttack", false);
+        eAnimator.SetBool("isChasing", true);
     }
 
     private void EnemyChase()
     {
+        //Default State.
         //During patrolling, if the player is closer than 5f but further than 3f, run to the edge of 
         //the platform on the side that the player is at and wait for the player.
-        
+        RaycastHit2D hit2D = Physics2D.Raycast(groundDetector.position, Vector2.down, 1f);
+        if (linearDistance<= invokeChaseDist)
+        {
+            if (playerObj.transform.position.x > transform.position.x)
+            {
+                transform.Translate(Vector2.right * enemySpeed * Time.deltaTime);
+                if (hit2D.collider == false || hit2D.collider.CompareTag("Wall"))
+                {
+                    enemySpeed = 0f;//halt at edge or wall.
+                }
+            }
+            else if (playerObj.transform.position.x < transform.position.x)
+            {
+                transform.Translate(Vector2.left * enemySpeed * Time.deltaTime);
+                if (hit2D.collider == false || hit2D.collider.CompareTag("Wall"))
+                {
+                    enemySpeed = 0f;//halt at edge or wall.
+                }
+            }
+        }
         //If player leaves the range of 5f, back to Patrol.
         eAnimator.SetBool("isPatrolling", true);
     }
