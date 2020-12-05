@@ -29,7 +29,7 @@ public class TimeController : MonoBehaviour
 
     }
 
-    void EndTime()
+    public void EndTime()
     {
         continueTime = false;
     }

@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class AssassinController : MonoBehaviour
 {
     [SerializeField] int health = 5;
+   public int totalDeaths = 0;
     [SerializeField] int currentHealth;
     [SerializeField] int deathRewinds = 3;
     [SerializeField] int currentRewinds;
@@ -16,6 +17,7 @@ public class AssassinController : MonoBehaviour
     [SerializeField] GameObject slideDust;
     [SerializeField] HealthController healthController;
     [SerializeField] TimeRewindController rewindController;
+     public LevelComplete levelComplete;
 
     private Animator animator;
     private Rigidbody2D rbody;
@@ -41,6 +43,7 @@ public class AssassinController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+       //levelComplete = GetComponent<LevelComplete>();
         currentHealth = health;
         currentRewinds = deathRewinds;
         healthController.SetMaxHealth(health);
@@ -248,7 +251,10 @@ public class AssassinController : MonoBehaviour
                 if (deathRewinds > 0)
                 {
                     deathRewinds--;
-                    rewindController.SetMana(currentRewinds);
+                    totalDeaths++;
+                    levelComplete.getNoOfDeaths(totalDeaths);
+
+                     rewindController.SetMana(currentRewinds);
                     isDead = false;
                     currentHealth = health;
                 }
@@ -267,7 +273,9 @@ public class AssassinController : MonoBehaviour
         } 
         else if (isDead == true && rewinding == true && assassinTranforms.Count - 1 > 0)
         {
+
             healthController.SetMaxHealth(health);
+       
             transform.position = new Vector3(assassinTranforms[assassinTranforms.Count - 1].positionX, assassinTranforms[assassinTranforms.Count - 1].positionY, assassinTranforms[assassinTranforms.Count - 1].positionZ);
             transform.localScale = new Vector3(assassinTranforms[assassinTranforms.Count - 1].localScaleX, 1, 1);
             assassinTranforms.RemoveAt(assassinTranforms.Count - 1);
@@ -326,8 +334,12 @@ public class AssassinController : MonoBehaviour
             healthController.SetHealth(currentHealth);
             animator.SetTrigger("Rewind Death");
             isDead = true;
+
+            
             if (deathRewinds == 0)
             {
+              
+
                 animator.SetTrigger("Permanent Death");
                 Invoke("RestScene", 3);
             }
@@ -336,6 +348,8 @@ public class AssassinController : MonoBehaviour
 
     private void RestScene()
     {
+      
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

@@ -14,15 +14,24 @@ public class LevelComplete : MonoBehaviour
     public TMP_Text timeTaken;
     #endregion
 
+    string sceneName;
+    int noOfDeaths;
+
     #region Buttons
     public Button mainMenuButton;
     public Button nextLevelButton;
     #endregion
 
-
     void Start()
     {
-        
+        sceneName = SceneManager.GetActiveScene().name;
+       
+    }
+
+    public void getNoOfDeaths(int deaths)
+    {
+        noOfDeaths = deaths;
+        timesDied.text = "Total Rewinds: " + noOfDeaths;
     }
     
     void Update()
@@ -32,11 +41,20 @@ public class LevelComplete : MonoBehaviour
 
     public void OnMainMenuClick()
     {
-        
+        SceneManager.LoadScene("Main Menu");
     }
 
     public void OnNextLevelClick()
     {
-        
+        switch (sceneName)
+        {
+            case "Level_1":
+                SceneManager.LoadScene("Level_2");
+                break;
+            case "Level_2":
+                SceneManager.LoadScene("Level_3");
+                break;
+              
+        }
     }
 }
