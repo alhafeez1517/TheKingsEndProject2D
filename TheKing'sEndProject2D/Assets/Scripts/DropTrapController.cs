@@ -5,7 +5,7 @@ using UnityEngine;
 public class DropTrapController : MonoBehaviour
 {
     [SerializeField] float timeBeforeDrop = 0.5f;
-    [SerializeField] float delayTime = 1f;
+    [SerializeField] float delayTime = 5f;
     [SerializeField] bool isReturning = true;
 
     private float originalPositionY;
