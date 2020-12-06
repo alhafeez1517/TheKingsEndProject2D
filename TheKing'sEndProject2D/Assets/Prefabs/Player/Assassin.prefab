@@ -224,13 +224,33 @@ MonoBehaviour:
   rewindController: {fileID: 0}
   levelComplete: {fileID: 0}
   audioSource: {fileID: 660648931}
-  jumpGrunt: {fileID: 8300000, guid: 5c4bae463ad1bed40ab4bfc02013bd47, type: 3}
-  hurtGrunt: {fileID: 8300000, guid: dbfed78247db28149b2a4e7ed70768a3, type: 3}
-  bloodSquirt: {fileID: 8300000, guid: 3a34465b692295a47bab41d74ce7def5, type: 3}
-  deathSound: {fileID: 8300000, guid: 75758491d86ee464f96e257085dfdac7, type: 3}
-  rewindSound: {fileID: 8300000, guid: 1d555e7d54aaf7843b2adf772b2bc530, type: 3}
-  swordSlashSound: {fileID: 8300000, guid: 87a8fa318aacdf147843f9165fc47fbd, type: 3}
-  rollSound: {fileID: 8300000, guid: fd6f2540e8cbb9e408ec93d47dffe703, type: 3}
+  SoundClips:
+    jumpGrunt: {fileID: 0}
+    hurtGrunt: {fileID: 0}
+    bloodSquirt: {fileID: 0}
+    deathSound: {fileID: 0}
+    rewindSound: {fileID: 0}
+    swordSlashSound: {fileID: 0}
+    rollSound: {fileID: 0}
+    Death_is_only_the_beginning: {fileID: 8300000, guid: e6809b1a26f0f3746968b0d1f58834aa,
+      type: 3}
+    I_shall_never_know_eternal_peace: {fileID: 8300000, guid: cc9afbcc634027a469a2c8ca5785fd4a,
+      type: 3}
+    I_shall_return_death_is_not_the_end: {fileID: 8300000, guid: 09a1ec970bf1dcd41915c226991683fe,
+      type: 3}
+    My_soul_will_forever_roam_the_land_of_the_living: {fileID: 8300000, guid: 60723972189981442a8f4adf43d185eb,
+      type: 3}
+    With_every_death_I_lose_more_of_my_soul: {fileID: 8300000, guid: a4d36701b94459f449d803e991d97468,
+      type: 3}
+    From_dust_we_are_made_and_to_dust_we_shall_return: {fileID: 8300000, guid: 87806c452e526eb45a1cb5c3a0725b16,
+      type: 3}
+    I_can_feel_myself_fading_from_existence: {fileID: 8300000, guid: ffd46021c60748c4a8c9fb49ca75f112,
+      type: 3}
+    I_dont_feel_pain_I_no_longer_feel_anything: {fileID: 8300000, guid: c4315c8057f54a1409448c8b0d0b7087,
+      type: 3}
+    My_time_has_come: {fileID: 8300000, guid: 02eceb0796ce07446be5319c56cb90ea, type: 3}
+    This_is_the_end_I_can_no_longer_continue_on: {fileID: 8300000, guid: e5dd79da44b68dc4c8182af4675a8a59,
+      type: 3}
   assassinAttack: {fileID: 0}
   assassinBlock: {fileID: 0}
   mainCamera: {fileID: 0}

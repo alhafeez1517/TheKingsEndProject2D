@@ -20,13 +20,33 @@ public class AssassinController : MonoBehaviour
     [SerializeField] LevelComplete levelComplete;
 
     public AudioSource audioSource;
-    public AudioClip jumpGrunt;
-    public AudioClip hurtGrunt;
-    public AudioClip bloodSquirt;
-    public AudioClip deathSound;
-    public AudioClip rewindSound;
-    public AudioClip swordSlashSound;
-    public AudioClip rollSound;
+    [System.Serializable]
+    public class soundClips
+    {
+        public AudioClip jumpGrunt;
+        public AudioClip hurtGrunt;
+        public AudioClip bloodSquirt;
+        public AudioClip deathSound;
+        public AudioClip rewindSound;
+        public AudioClip swordSlashSound;
+        public AudioClip rollSound;
+
+        // Time Rewind Lines
+        public AudioClip Death_is_only_the_beginning;
+        public AudioClip I_shall_never_know_eternal_peace;
+        public AudioClip I_shall_return_death_is_not_the_end;
+        public AudioClip My_soul_will_forever_roam_the_land_of_the_living;
+        public AudioClip With_every_death_I_lose_more_of_my_soul;
+
+        // Death Lines
+        public AudioClip From_dust_we_are_made_and_to_dust_we_shall_return;
+        public AudioClip I_can_feel_myself_fading_from_existence;
+        public AudioClip I_dont_feel_pain_I_no_longer_feel_anything;
+        public AudioClip My_time_has_come;
+        public AudioClip This_is_the_end_I_can_no_longer_continue_on;
+    }
+    public soundClips SoundClips;
+
 
     private Animator animator;
     private Rigidbody2D rbody;
@@ -52,6 +72,7 @@ public class AssassinController : MonoBehaviour
     private bool rewinding = false;
     private List<AssassinTransform> assassinTranforms;
     private float inputX;
+    private int rand;
 
     // Start is called before the first frame update
     void Start()
@@ -108,7 +129,8 @@ public class AssassinController : MonoBehaviour
                     rollingIsReady = false;
                     rolling = true;
                     Invoke("RollCooldown", 1);
-                    audioSource.PlayOneShot(rollSound);
+                    audioSource.clip = SoundClips.rollSound;
+                    audioSource.Play();
                     rbody.AddForce(new Vector2(AssassinDirection.localScale.x * rollForce, rbody.velocity.y), ForceMode2D.Impulse);
                 }
 
@@ -152,11 +174,12 @@ public class AssassinController : MonoBehaviour
             // Jump
             if (Input.GetKeyDown(KeyCode.W) && assassinColliders.GroundedState() == true || Input.GetKeyDown(KeyCode.W) && extrajump == true)
             {
-                audioSource.PlayOneShot(jumpGrunt);
+                audioSource.clip = SoundClips.jumpGrunt;
+                audioSource.Play();
                 rbody.gravityScale = gravityScale * 2;
                 rbody.velocity = new Vector2(rbody.velocity.x, jumpForce);
                 extrajump = false;
-            }          
+            }
 
             // Jump animation 
             if (rbody.velocity.y == 0 || assassinColliders.GroundedState() == true)
@@ -230,7 +253,8 @@ public class AssassinController : MonoBehaviour
             // Attack animations
             if (attackAnimationReady == true && Input.GetMouseButtonDown(0))
             {
-                audioSource.PlayOneShot(swordSlashSound);
+                audioSource.clip = SoundClips.swordSlashSound;
+                audioSource.Play();
                 attackAnimationReady = false;
                 AttackAnimations(Random.Range(0, 3));
                 Invoke("AttackAnimationCooldown", 1);
@@ -238,13 +262,13 @@ public class AssassinController : MonoBehaviour
 
             // Idle block animation
             if (idleBlockAnimationReady == true && Input.GetMouseButtonDown(1))
-            {                
+            {
                 Debug.Log("Guard");
                 idleBlockAnimationReady = false;
-                animator.SetTrigger("Idle Block");                
+                animator.SetTrigger("Idle Block");
                 Invoke("IdleBlockAnimationCooldown", 1);
             }
-                        
+
         }
         // Death Rewind
         else if (isDead == true && deathRewinds != 0)
@@ -254,7 +278,36 @@ public class AssassinController : MonoBehaviour
                 AssassinBoxCollider2D.enabled = false;
                 animator.SetBool("Rewind", true);
                 rewinding = true;
-                audioSource.PlayOneShot(rewindSound);
+
+                rand = Random.Range(1, 6);
+                if (rand == 1)
+                {
+
+                    audioSource.clip = SoundClips.Death_is_only_the_beginning;
+                    audioSource.Play();
+                }
+                else if (rand == 2)
+                {
+                    audioSource.clip = SoundClips.I_shall_never_know_eternal_peace;
+                    audioSource.Play();
+                }
+                else if (rand == 3)
+                {
+                    audioSource.clip = SoundClips.I_shall_return_death_is_not_the_end;
+                    audioSource.Play();
+                }
+                else if (rand == 4)
+                {
+                    audioSource.clip = SoundClips.My_soul_will_forever_roam_the_land_of_the_living;
+                    audioSource.Play();
+                }
+                else if (rand == 5)
+                {
+                    audioSource.clip = SoundClips.With_every_death_I_lose_more_of_my_soul;
+                    audioSource.Play();
+                }
+                //audioSource.clip = SoundClips.rewindSound;
+                //audioSource.Play();            
             }
             else if (Input.GetKeyUp(KeyCode.Space))
             {
@@ -342,8 +395,10 @@ public class AssassinController : MonoBehaviour
             currentHealth--;
             healthController.SetHealth(currentHealth);
             animator.SetTrigger("Hurt");
-            audioSource.PlayOneShot(hurtGrunt);
-            audioSource.PlayOneShot(bloodSquirt);
+            audioSource.clip = SoundClips.hurtGrunt;
+            audioSource.Play();
+            audioSource.clip = SoundClips.bloodSquirt;
+            audioSource.Play();
         }
         else if (currentHealth - 1 == 0)
         {
@@ -351,13 +406,42 @@ public class AssassinController : MonoBehaviour
             healthController.SetHealth(currentHealth);
             animator.SetTrigger("Rewind Death");
             isDead = true;
-            audioSource.PlayOneShot(deathSound);
-
+            //audioSource.clip = SoundClips.deathSound;
+            //audioSource.Play();
 
             if (deathRewinds == 0)
             {
                 animator.SetTrigger("Permanent Death");
-                Invoke("RestScene", 3);
+
+                rand = Random.Range(1, 6);
+                if (rand == 1)
+                {
+
+                    audioSource.clip = SoundClips.From_dust_we_are_made_and_to_dust_we_shall_return;
+                    audioSource.Play();
+                }
+                else if (rand == 2)
+                {
+                    audioSource.clip = SoundClips.I_can_feel_myself_fading_from_existence;
+                    audioSource.Play();
+                }
+                else if (rand == 3)
+                {
+                    audioSource.clip = SoundClips.I_dont_feel_pain_I_no_longer_feel_anything;
+                    audioSource.Play();
+                }
+                else if (rand == 4)
+                {
+                    audioSource.clip = SoundClips.My_time_has_come;
+                    audioSource.Play();
+                }
+                else if (rand == 5)
+                {
+                    audioSource.clip = SoundClips.This_is_the_end_I_can_no_longer_continue_on;
+                    audioSource.Play();
+                }
+
+                Invoke("RestScene", 4);
             }
         }
     }
@@ -402,22 +486,22 @@ public class AssassinController : MonoBehaviour
     void Block()
     {
         if (block_R.activeSelf == false)
-        {                       
+        {
             assassinBlock.SetIsBlocking(true);
             AssassinBoxCollider2D.enabled = false;
             block_R.SetActive(true);
-        }       
+        }
     }
 
     public void BlockFalse()
-    {           
+    {
         assassinBlock.SetIsBlocking(false);
         AssassinBoxCollider2D.enabled = true;
         block_R.SetActive(false);
     }
 
     public void BlockAnimation()
-    {        
+    {
         animator.SetTrigger("Block Attack");
     }
 
@@ -434,5 +518,5 @@ public class AssassinController : MonoBehaviour
     public int GetDeathRewinds()
     {
         return deathRewinds;
-    }  
+    }
 }
