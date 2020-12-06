@@ -130,15 +130,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c977cdd758fe4b440b696ed46ff20dd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 3
+  enemyHelath: 3
   enemyCurrentHealth: 0
   enemySpeed: 1
   invokePatrolDist: 10
   invokeChaseDist: 5
   invokeAttackDist: 3
   enemyState: 0
-  playerObj: {fileID: 7788571722233373749, guid: cfdbf5bc18b234b41bc8fa82f78ca436,
-    type: 3}
+  playerObj: {fileID: 0}
   currentEnemyState: 1
   linearDistance: 0
   groundDetector: {fileID: 1832945639439312003}

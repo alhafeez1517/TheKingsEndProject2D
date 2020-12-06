@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class HealthController : MonoBehaviour
 {
-    public Slider healthSlider;    
+    public Slider healthSlider;
 
     public void SetMaxHealth(float health)
     {

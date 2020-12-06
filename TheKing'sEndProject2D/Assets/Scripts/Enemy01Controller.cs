@@ -31,6 +31,7 @@ public class Enemy01Controller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        linearDistance = Vector2.Distance(playerObj.transform.position, this.transform.position);
         eAnimator = GetComponent<Animator>();
         enemyState = (int)states.IDLE;
         EnemyIdle();
