@@ -19,7 +19,11 @@ public class AssassinController : MonoBehaviour
     [SerializeField] TimeRewindController rewindController;
     [SerializeField] LevelComplete levelComplete;
 
-    public AudioSource audioSource;
+    [SerializeField] AudioSource BGM;
+    [SerializeField] AudioSource BGM2;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioSource characterLines;
+
     [System.Serializable]
     public class soundClips
     {
@@ -44,6 +48,10 @@ public class AssassinController : MonoBehaviour
         public AudioClip I_dont_feel_pain_I_no_longer_feel_anything;
         public AudioClip My_time_has_come;
         public AudioClip This_is_the_end_I_can_no_longer_continue_on;
+
+        //BGM
+        public AudioClip Wood_Carving_Partita;
+        public AudioClip Wood_Carving_Partita_Reverse;
     }
     public soundClips SoundClips;
 
@@ -77,6 +85,8 @@ public class AssassinController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        BGM = GameObject.Find("BGM").GetComponent<AudioSource>();
+        BGM2 = BGM.transform.GetChild(0).GetComponent<AudioSource>();
         //healthController = GameObject.Find("HealthBar").GetComponent<HealthController>();
         // rewindController = GameObject.Find("ManaBar").GetComponent<TimeRewindController>();
         //levelComplete = GameObject.Find("ScoreController").GetComponent<LevelComplete>();                     missing
@@ -96,6 +106,7 @@ public class AssassinController : MonoBehaviour
         block_R = transform.Find("Block_R").gameObject;
         assassinAttack = this.gameObject.transform.GetChild(6).GetComponent<AssassinAttackBlock>();
         assassinBlock = this.gameObject.transform.GetChild(7).GetComponent<AssassinAttackBlock>();
+        characterLines = this.gameObject.transform.GetChild(8).GetComponent<AudioSource>();
         attack_R.SetActive(false);
         block_R.SetActive(false);
         mainCamera = GameObject.Find("Main Camera").GetComponent<Transform>();
@@ -279,33 +290,10 @@ public class AssassinController : MonoBehaviour
                 animator.SetBool("Rewind", true);
                 rewinding = true;
 
-                rand = Random.Range(1, 6);
-                if (rand == 1)
-                {
-
-                    audioSource.clip = SoundClips.Death_is_only_the_beginning;
-                    audioSource.Play();
-                }
-                else if (rand == 2)
-                {
-                    audioSource.clip = SoundClips.I_shall_never_know_eternal_peace;
-                    audioSource.Play();
-                }
-                else if (rand == 3)
-                {
-                    audioSource.clip = SoundClips.I_shall_return_death_is_not_the_end;
-                    audioSource.Play();
-                }
-                else if (rand == 4)
-                {
-                    audioSource.clip = SoundClips.My_soul_will_forever_roam_the_land_of_the_living;
-                    audioSource.Play();
-                }
-                else if (rand == 5)
-                {
-                    audioSource.clip = SoundClips.With_every_death_I_lose_more_of_my_soul;
-                    audioSource.Play();
-                }
+                BGM.mute = true;
+                BGM2.mute = false;
+                audioSource.Play();
+                
                 //audioSource.clip = SoundClips.rewindSound;
                 //audioSource.Play();            
             }
@@ -314,6 +302,37 @@ public class AssassinController : MonoBehaviour
                 AssassinBoxCollider2D.enabled = true;
                 animator.SetBool("Rewind", false);
                 rewinding = false;
+
+                BGM.mute = false;
+                BGM2.mute = true;
+
+                rand = Random.Range(1, 6);
+                if (rand == 1)
+                {
+                    characterLines.clip = SoundClips.Death_is_only_the_beginning;
+                    characterLines.Play();
+                }
+                else if (rand == 2)
+                {
+                    characterLines.clip = SoundClips.I_shall_never_know_eternal_peace;
+                    characterLines.Play();
+                }
+                else if (rand == 3)
+                {
+                    characterLines.clip = SoundClips.I_shall_return_death_is_not_the_end;
+                    characterLines.Play();
+                }
+                else if (rand == 4)
+                {
+                    characterLines.clip = SoundClips.My_soul_will_forever_roam_the_land_of_the_living;
+                    characterLines.Play();
+                }
+                else if (rand == 5)
+                {
+                    characterLines.clip = SoundClips.With_every_death_I_lose_more_of_my_soul;
+                    characterLines.Play();
+                }               
+
                 assassinTranforms.Clear();
                 if (deathRewinds > 0)
                 {
@@ -417,28 +436,28 @@ public class AssassinController : MonoBehaviour
                 if (rand == 1)
                 {
 
-                    audioSource.clip = SoundClips.From_dust_we_are_made_and_to_dust_we_shall_return;
-                    audioSource.Play();
+                    characterLines.clip = SoundClips.From_dust_we_are_made_and_to_dust_we_shall_return;
+                    characterLines.Play();
                 }
                 else if (rand == 2)
                 {
-                    audioSource.clip = SoundClips.I_can_feel_myself_fading_from_existence;
-                    audioSource.Play();
+                    characterLines.clip = SoundClips.I_can_feel_myself_fading_from_existence;
+                    characterLines.Play();
                 }
                 else if (rand == 3)
                 {
-                    audioSource.clip = SoundClips.I_dont_feel_pain_I_no_longer_feel_anything;
-                    audioSource.Play();
+                    characterLines.clip = SoundClips.I_dont_feel_pain_I_no_longer_feel_anything;
+                    characterLines.Play();
                 }
                 else if (rand == 4)
                 {
-                    audioSource.clip = SoundClips.My_time_has_come;
-                    audioSource.Play();
+                    characterLines.clip = SoundClips.My_time_has_come;
+                    characterLines.Play();
                 }
                 else if (rand == 5)
                 {
-                    audioSource.clip = SoundClips.This_is_the_end_I_can_no_longer_continue_on;
-                    audioSource.Play();
+                    characterLines.clip = SoundClips.This_is_the_end_I_can_no_longer_continue_on;
+                    characterLines.Play();
                 }
 
                 Invoke("RestScene", 4);
