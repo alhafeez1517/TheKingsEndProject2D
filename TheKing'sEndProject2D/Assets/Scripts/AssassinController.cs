@@ -35,7 +35,11 @@ public class AssassinController : MonoBehaviour
     private AssassinColliders assassinColliders;
     //private Transform spawnDustL;
     private Transform spawnDustR;
-    private Transform mainCamera;
+    private GameObject attack_R;
+    private GameObject block_R;
+    [SerializeField] AssassinAttackBlock assassinAttack;
+    [SerializeField] AssassinAttackBlock assassinBlock;
+    [SerializeField] Transform mainCamera;
 
     private bool attackAnimationReady = true;
     private bool idleBlockAnimationReady = true;
@@ -52,13 +56,13 @@ public class AssassinController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       //healthController = GameObject.Find("HealthBar").GetComponent<HealthController>();
-       // rewindController = GameObject.Find("ManaBar").GetComponent<TimeRewindController>();
-       levelComplete = GameObject.Find("ScoreController").GetComponent<LevelComplete>();
-        currentHealth = health;  
+        //healthController = GameObject.Find("HealthBar").GetComponent<HealthController>();
+        // rewindController = GameObject.Find("ManaBar").GetComponent<TimeRewindController>();
+        //levelComplete = GameObject.Find("ScoreController").GetComponent<LevelComplete>();                     missing
+        currentHealth = health;
         currentRewinds = deathRewinds;
-        healthController.SetMaxHealth(health);
-        rewindController.SetMaxMana(deathRewinds);
+        //healthController.SetMaxHealth(health);                                                               missing
+        //rewindController.SetMaxMana(deathRewinds);                                                           missing
         animator = GetComponent<Animator>();
         rbody = GetComponent<Rigidbody2D>();
         AssassinBoxCollider2D = GetComponent<BoxCollider2D>();
@@ -67,6 +71,12 @@ public class AssassinController : MonoBehaviour
         assassinColliders = transform.Find("Assassin_Ground_Collider").GetComponent<AssassinColliders>();
         //spawnDustL = transform.Find("Assassin_Wall_Slide_L").GetComponent<Transform>();
         spawnDustR = transform.Find("Assassin_Wall_Slide_R").GetComponent<Transform>();
+        attack_R = transform.Find("Attack_R").gameObject;
+        block_R = transform.Find("Block_R").gameObject;
+        assassinAttack = this.gameObject.transform.GetChild(6).GetComponent<AssassinAttackBlock>();
+        assassinBlock = this.gameObject.transform.GetChild(7).GetComponent<AssassinAttackBlock>();
+        attack_R.SetActive(false);
+        block_R.SetActive(false);
         mainCamera = GameObject.Find("Main Camera").GetComponent<Transform>();
     }
 
@@ -146,22 +156,7 @@ public class AssassinController : MonoBehaviour
                 rbody.gravityScale = gravityScale * 2;
                 rbody.velocity = new Vector2(rbody.velocity.x, jumpForce);
                 extrajump = false;
-            }
-
-            // Attack
-            if (Input.GetMouseButtonDown(0))
-            {
-                Debug.Log("Attack");
-                audioSource.PlayOneShot(swordSlashSound);
-}
-
-            // Block
-            if (Input.GetMouseButtonDown(1))
-            {
-                Debug.Log("Block");
-            }
-
-            // Counter attack on perfect block      
+            }          
 
             // Jump animation 
             if (rbody.velocity.y == 0 || assassinColliders.GroundedState() == true)
@@ -172,7 +167,7 @@ public class AssassinController : MonoBehaviour
             {
                 if (rbody.velocity.y > 0)
                 {
-                    
+
                     animator.SetBool("Jump", true);
                 }
 
@@ -181,7 +176,7 @@ public class AssassinController : MonoBehaviour
                     animator.SetBool("Jump", false);
                     animator.SetBool("Fall", true);
                 }
-              
+
             }
 
             // Run animation
@@ -235,6 +230,7 @@ public class AssassinController : MonoBehaviour
             // Attack animations
             if (attackAnimationReady == true && Input.GetMouseButtonDown(0))
             {
+                audioSource.PlayOneShot(swordSlashSound);
                 attackAnimationReady = false;
                 AttackAnimations(Random.Range(0, 3));
                 Invoke("AttackAnimationCooldown", 1);
@@ -242,13 +238,13 @@ public class AssassinController : MonoBehaviour
 
             // Idle block animation
             if (idleBlockAnimationReady == true && Input.GetMouseButtonDown(1))
-            {
+            {                
+                Debug.Log("Guard");
                 idleBlockAnimationReady = false;
-                animator.SetTrigger("Idle Block");
+                animator.SetTrigger("Idle Block");                
                 Invoke("IdleBlockAnimationCooldown", 1);
             }
-
-            // Block attack animation
+                        
         }
         // Death Rewind
         else if (isDead == true && deathRewinds != 0)
@@ -293,7 +289,7 @@ public class AssassinController : MonoBehaviour
         {
 
             healthController.SetMaxHealth(health);
-            
+
 
             transform.position = new Vector3(assassinTranforms[assassinTranforms.Count - 1].positionX, assassinTranforms[assassinTranforms.Count - 1].positionY, assassinTranforms[assassinTranforms.Count - 1].positionZ);
             transform.localScale = new Vector3(assassinTranforms[assassinTranforms.Count - 1].localScaleX, 1, 1);
@@ -368,8 +364,6 @@ public class AssassinController : MonoBehaviour
 
     private void RestScene()
     {
-
-
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
@@ -389,6 +383,49 @@ public class AssassinController : MonoBehaviour
         }
     }
 
+    void Attack()
+    {
+        if (attack_R.activeSelf == false)
+        {
+            attack_R.SetActive(true);
+        }
+    }
+
+    void AttackFalse()
+    {
+        if (attack_R.activeSelf == true)
+        {
+            attack_R.SetActive(false);
+        }
+    }
+
+    void Block()
+    {
+        if (block_R.activeSelf == false)
+        {                       
+            assassinBlock.SetIsBlocking(true);
+            AssassinBoxCollider2D.enabled = false;
+            block_R.SetActive(true);
+        }       
+    }
+
+    public void BlockFalse()
+    {           
+        assassinBlock.SetIsBlocking(false);
+        AssassinBoxCollider2D.enabled = true;
+        block_R.SetActive(false);
+    }
+
+    public void BlockAnimation()
+    {        
+        animator.SetTrigger("Block Attack");
+    }
+
+    void AssassinBoxCollider2DEnabled()
+    {
+        AssassinBoxCollider2D.enabled = true;
+    }
+
     public int GetCurrentHealth()
     {
         return currentHealth;
@@ -397,5 +434,5 @@ public class AssassinController : MonoBehaviour
     public int GetDeathRewinds()
     {
         return deathRewinds;
-    }
+    }  
 }

@@ -736,6 +736,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   continueTime: 0
   elapsedTime: 0
+  currentTime: 
 --- !u!1 &7166281960582814252
 GameObject:
   m_ObjectHideFlags: 0
