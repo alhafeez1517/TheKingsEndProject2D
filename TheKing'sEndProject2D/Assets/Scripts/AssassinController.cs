@@ -36,6 +36,7 @@ public class AssassinController : MonoBehaviour
         public AudioClip rollSound;
         public AudioClip slide;
         public AudioClip deflect;
+        public AudioClip slash;
 
         // Time Rewind Lines
         public AudioClip Death_is_only_the_beginning;
@@ -546,6 +547,12 @@ public class AssassinController : MonoBehaviour
     public void Deflect()
     {
         audioSource.clip = SoundClips.deflect;
+        audioSource.Play();
+    }
+
+    public void Slash()
+    {
+        audioSource.clip = SoundClips.slash;
         audioSource.Play();
     }
 }

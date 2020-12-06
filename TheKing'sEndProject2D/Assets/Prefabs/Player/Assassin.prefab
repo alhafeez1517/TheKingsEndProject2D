@@ -365,6 +365,7 @@ MonoBehaviour:
     rollSound: {fileID: 8300000, guid: fd6f2540e8cbb9e408ec93d47dffe703, type: 3}
     slide: {fileID: 8300000, guid: 541badeae42c5f94b99e88aa162d3313, type: 3}
     deflect: {fileID: 8300000, guid: 3c5116c201d696c45a325cc00ccf8390, type: 3}
+    slash: {fileID: 8300000, guid: c7032b618a05cea47949d30334309e0a, type: 3}
     Death_is_only_the_beginning: {fileID: 8300000, guid: e6809b1a26f0f3746968b0d1f58834aa,
       type: 3}
     I_shall_never_know_eternal_peace: {fileID: 8300000, guid: cc9afbcc634027a469a2c8ca5785fd4a,

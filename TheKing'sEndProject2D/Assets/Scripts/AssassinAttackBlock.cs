@@ -18,6 +18,7 @@ public class AssassinAttackBlock : MonoBehaviour
     {
         if (collision.tag == "Enemy")
         {
+            assassinController.Slash();
             Debug.Log("Attack");
             // Code for enemy public method            
             // ???.TakeDamage();
