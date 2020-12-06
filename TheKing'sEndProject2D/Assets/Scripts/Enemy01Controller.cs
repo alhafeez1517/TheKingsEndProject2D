@@ -44,30 +44,30 @@ public class Enemy01Controller : MonoBehaviour
         Vector3 pos = transform.position;
         pos.z = 0;
         transform.position = pos;
+        if (enemyHealth<=0)
+        {
+            Destroy(this);
+        }
     }
     void CheckState()
     {
-        switch (currentEnemyState)
+        if (linearDistance >= invokePatrolDist)
         {
-            case states.IDLE:
-                EnemyIdle();
-                break;
-            case states.PATROL:
-                EnemyPatrol();
-                break;
-            case states.CHASE:
-                EnemyChase();
-                break;
-            case states.DASH:
-                EnemyDash();
-                break;
-            case states.ATTACK:
-                EnemyAttack();
-                break;
+            EnemyPatrol();
         }
+        else if (linearDistance >= invokeChaseDist && linearDistance <= invokePatrolDist)
+        {
+            EnemyChase();
+        }else if(linearDistance <= invokeChaseDist && linearDistance >= invokeAttackDist)
+        {
+            EnemyDash();
+        }else if (linearDistance <= invokeAttackDist)
+        {
+            EnemyAttack();
+        }        
     }
 
-    private void EnemyAttack() 
+    public void EnemyAttack() 
     {
         if (linearDistance < invokeAttackDist)
         {
@@ -81,6 +81,7 @@ public class Enemy01Controller : MonoBehaviour
     {
         if (collision.gameObject.tag=="Player")
         {
+            enemySpeed = 0;
             enemyHealth -= 1;
         }
     }
@@ -91,15 +92,20 @@ public class Enemy01Controller : MonoBehaviour
         //if player get back to between 3f and 5f, back to patrol.
         if (linearDistance <= invokeAttackDist && linearDistance >= invokeChaseDist)
         {
-            this.transform.position
-
-
+            this.transform.position = Vector2.MoveTowards(this.transform.position, playerObj.transform.position, enemySpeed * 5 * Time.deltaTime);
             //Dash to player, ignore gravity.
+            eAnimator.SetBool("isPlayerInrange", true);
+            eAnimator.SetBool("canAttack", false);
+            eAnimator.SetBool("isChasing", true);
+        }
+        else
+        {
+            eAnimator.SetBool("isPlayerInrange", false);
+            eAnimator.SetBool("canAttack", true);
+            eAnimator.SetBool("isChasing", false);
         }
         //Setting animation by setting booleans.
-        eAnimator.SetBool("isPlayerInrange", true);
-        eAnimator.SetBool("canAttack", false);
-        eAnimator.SetBool("isChasing", true);
+        
     }
 
     private void EnemyChase()
