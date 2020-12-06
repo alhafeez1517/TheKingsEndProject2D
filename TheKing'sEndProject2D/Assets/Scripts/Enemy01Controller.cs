@@ -31,8 +31,11 @@ public class Enemy01Controller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        linearDistance = Vector2.Distance(playerObj.transform.position, this.transform.position);
         eAnimator = GetComponent<Animator>();
-        enemyState = (int)states.PATROL;        
+        enemyState = (int)states.IDLE;
+        EnemyIdle();
+        Invoke("CheckState", 2f);
     }
 
     // Update is called once per frame
@@ -77,14 +80,7 @@ public class Enemy01Controller : MonoBehaviour
         eAnimator.SetBool("isPlayerInRange", true);
         eAnimator.SetBool("canAttack", true);
     }
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag=="Player")
-        {
-            enemySpeed = 0;
-            enemyHealth -= 1;
-        }
-    }
+    
 
     private void EnemyDash()
     {
@@ -104,8 +100,7 @@ public class Enemy01Controller : MonoBehaviour
             eAnimator.SetBool("canAttack", true);
             eAnimator.SetBool("isChasing", false);
         }
-        //Setting animation by setting booleans.
-        
+        //Setting animation by setting booleans.        
     }
 
     private void EnemyChase()
@@ -160,11 +155,26 @@ public class Enemy01Controller : MonoBehaviour
         }
         eAnimator.SetBool("isPatrolling", true);
     }
-
     private void EnemyIdle() 
     {
+        enemySpeed = 0;
+        transform.position += Vector3.zero;
         //Won't be transitioned to.
         eAnimator.SetBool("isPatrolling", false);
         eAnimator.SetBool("isPlayerInRange", false);
+    }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            enemySpeed = 0;
+            enemyHealth -= 1;
+            if (enemyHealth <= 0)
+            {
+                enemySpeed = 0;
+                eAnimator.SetTrigger("isDead");
+                Destroy(gameObject, 2f);
+            }
+        }
     }
 }
