@@ -34,6 +34,8 @@ public class AssassinController : MonoBehaviour
         public AudioClip rewindSound;
         public AudioClip swordSlashSound;
         public AudioClip rollSound;
+        public AudioClip slide;
+        public AudioClip deflect;
 
         // Time Rewind Lines
         public AudioClip Death_is_only_the_beginning;
@@ -156,6 +158,10 @@ public class AssassinController : MonoBehaviour
             // Wall Sliding    
             if (onWall == false && assassinColliders.GroundedState() == false && assassinColliders.SlidingState() == true && rbody.velocity.y < 0)
             {
+
+                audioSource.clip = SoundClips.slide;
+                audioSource.Play();
+
                 //Left
                 if (AssassinDirection.localScale.x == -1)
                 {
@@ -292,19 +298,6 @@ public class AssassinController : MonoBehaviour
 
                 BGM.mute = true;
                 BGM2.mute = false;
-                audioSource.Play();
-                
-                //audioSource.clip = SoundClips.rewindSound;
-                //audioSource.Play();            
-            }
-            else if (Input.GetKeyUp(KeyCode.Space))
-            {
-                AssassinBoxCollider2D.enabled = true;
-                animator.SetBool("Rewind", false);
-                rewinding = false;
-
-                BGM.mute = false;
-                BGM2.mute = true;
 
                 rand = Random.Range(1, 6);
                 if (rand == 1)
@@ -331,7 +324,18 @@ public class AssassinController : MonoBehaviour
                 {
                     characterLines.clip = SoundClips.With_every_death_I_lose_more_of_my_soul;
                     characterLines.Play();
-                }               
+                }
+                //audioSource.clip = SoundClips.rewindSound;
+                //audioSource.Play();            
+            }
+            else if (Input.GetKeyUp(KeyCode.Space))
+            {
+                AssassinBoxCollider2D.enabled = true;
+                animator.SetBool("Rewind", false);
+                rewinding = false;
+
+                BGM.mute = false;
+                BGM2.mute = true;
 
                 assassinTranforms.Clear();
                 if (deathRewinds > 0)
@@ -537,5 +541,11 @@ public class AssassinController : MonoBehaviour
     public int GetDeathRewinds()
     {
         return deathRewinds;
+    }
+
+    public void Deflect()
+    {
+        audioSource.clip = SoundClips.deflect;
+        audioSource.Play();
     }
 }

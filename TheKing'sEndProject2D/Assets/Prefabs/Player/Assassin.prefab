@@ -352,16 +352,19 @@ MonoBehaviour:
   rewindController: {fileID: 0}
   levelComplete: {fileID: 0}
   BGM: {fileID: 0}
+  BGM2: {fileID: 0}
   audioSource: {fileID: 660648931}
   characterLines: {fileID: 0}
   SoundClips:
-    jumpGrunt: {fileID: 0}
-    hurtGrunt: {fileID: 0}
+    jumpGrunt: {fileID: 8300000, guid: 5c4bae463ad1bed40ab4bfc02013bd47, type: 3}
+    hurtGrunt: {fileID: 8300000, guid: dbfed78247db28149b2a4e7ed70768a3, type: 3}
     bloodSquirt: {fileID: 0}
     deathSound: {fileID: 0}
     rewindSound: {fileID: 0}
-    swordSlashSound: {fileID: 0}
-    rollSound: {fileID: 0}
+    swordSlashSound: {fileID: 8300000, guid: 87a8fa318aacdf147843f9165fc47fbd, type: 3}
+    rollSound: {fileID: 8300000, guid: fd6f2540e8cbb9e408ec93d47dffe703, type: 3}
+    slide: {fileID: 8300000, guid: 541badeae42c5f94b99e88aa162d3313, type: 3}
+    deflect: {fileID: 8300000, guid: 3c5116c201d696c45a325cc00ccf8390, type: 3}
     Death_is_only_the_beginning: {fileID: 8300000, guid: e6809b1a26f0f3746968b0d1f58834aa,
       type: 3}
     I_shall_never_know_eternal_peace: {fileID: 8300000, guid: cc9afbcc634027a469a2c8ca5785fd4a,
@@ -517,7 +520,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
