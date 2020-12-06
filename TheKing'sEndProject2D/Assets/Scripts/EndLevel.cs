@@ -7,28 +7,40 @@ using TMPro;
 public class EndLevel : MonoBehaviour
 {
     private TimeController timeController;
+    public AudioSource audioSource;
+    public AudioClip niceSound;
     private LevelComplete levelComplete;
-    private AssassinController assassinController;
+    //private AssassinController assassinController;
+    private GameObject assassin;
     private GameObject healthCanvas;
     private GameObject timeCanvas;
-    private GameObject scoreCanvas;
+    public GameObject scoreCanvas;
 
     // Start is called before the first frame update
     void Start()
     {
-        assassinController = GameObject.FindGameObjectWithTag("Player").GetComponent<AssassinController>();
-        assassinController.GetCurrentHealth();
+        
+        assassin = GameObject.FindGameObjectWithTag("Player");
+        timeController = GameObject.Find("Time").GetComponent<TimeController>();
+       levelComplete = GameObject.Find("ScoreController").GetComponent<LevelComplete>();
+        healthCanvas = GameObject.Find("HealthBar");
+        timeCanvas = GameObject.Find("Manabar");
+        
     }
 
     public void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Player")
         {
+            audioSource.PlayOneShot(niceSound);
+      
+            assassin.gameObject.SetActive(false);
             healthCanvas.gameObject.SetActive(false);
             timeCanvas.gameObject.SetActive(false);
             scoreCanvas.gameObject.SetActive(true);
             timeController.EndTime();
-            //levelComplete.timeTaken.text = "Total time taken: "+ timeController.timeCounter.text;
+            levelComplete.timeTaken.text = "Total time taken: " + timeController.currentTime;
+           
         }
     }
 

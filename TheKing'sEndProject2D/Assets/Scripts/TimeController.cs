@@ -12,6 +12,7 @@ public class TimeController : MonoBehaviour
     public TimeSpan timeSpan;
     public bool continueTime;
     public float elapsedTime;
+    public string currentTime;
 
     void Start()
     {
@@ -40,11 +41,12 @@ public class TimeController : MonoBehaviour
         {
             elapsedTime += Time.deltaTime;
             timeSpan = TimeSpan.FromSeconds(elapsedTime);
-            string currentTime = "Time: " + timeSpan.ToString("mm':'ss");
-            //timeCounter.text = currentTime;
+            currentTime = timeSpan.ToString("mm':'ss");
             yield return null;
         }
     }
+
+   
 
     // Update is called once per frame
     void Update()

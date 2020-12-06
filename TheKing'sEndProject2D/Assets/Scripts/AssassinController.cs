@@ -17,7 +17,16 @@ public class AssassinController : MonoBehaviour
     [SerializeField] GameObject slideDust;
     [SerializeField] HealthController healthController;
     [SerializeField] TimeRewindController rewindController;
-    public LevelComplete levelComplete;
+    [SerializeField] LevelComplete levelComplete;
+
+    public AudioSource audioSource;
+    public AudioClip jumpGrunt;
+    public AudioClip hurtGrunt;
+    public AudioClip bloodSquirt;
+    public AudioClip deathSound;
+    public AudioClip rewindSound;
+    public AudioClip swordSlashSound;
+    public AudioClip rollSound;
 
     private Animator animator;
     private Rigidbody2D rbody;
@@ -43,8 +52,10 @@ public class AssassinController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //levelComplete = GetComponent<LevelComplete>();
-        currentHealth = health;
+       //healthController = GameObject.Find("HealthBar").GetComponent<HealthController>();
+       // rewindController = GameObject.Find("ManaBar").GetComponent<TimeRewindController>();
+       levelComplete = GameObject.Find("ScoreController").GetComponent<LevelComplete>();
+        currentHealth = health;  
         currentRewinds = deathRewinds;
         healthController.SetMaxHealth(health);
         rewindController.SetMaxMana(deathRewinds);
@@ -87,6 +98,7 @@ public class AssassinController : MonoBehaviour
                     rollingIsReady = false;
                     rolling = true;
                     Invoke("RollCooldown", 1);
+                    audioSource.PlayOneShot(rollSound);
                     rbody.AddForce(new Vector2(AssassinDirection.localScale.x * rollForce, rbody.velocity.y), ForceMode2D.Impulse);
                 }
 
@@ -130,6 +142,7 @@ public class AssassinController : MonoBehaviour
             // Jump
             if (Input.GetKeyDown(KeyCode.W) && assassinColliders.GroundedState() == true || Input.GetKeyDown(KeyCode.W) && extrajump == true)
             {
+                audioSource.PlayOneShot(jumpGrunt);
                 rbody.gravityScale = gravityScale * 2;
                 rbody.velocity = new Vector2(rbody.velocity.x, jumpForce);
                 extrajump = false;
@@ -139,7 +152,8 @@ public class AssassinController : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 Debug.Log("Attack");
-            }
+                audioSource.PlayOneShot(swordSlashSound);
+}
 
             // Block
             if (Input.GetMouseButtonDown(1))
@@ -158,13 +172,16 @@ public class AssassinController : MonoBehaviour
             {
                 if (rbody.velocity.y > 0)
                 {
+                    
                     animator.SetBool("Jump", true);
                 }
+
                 else if (rbody.velocity.y < 0)
                 {
                     animator.SetBool("Jump", false);
                     animator.SetBool("Fall", true);
                 }
+              
             }
 
             // Run animation
@@ -241,6 +258,7 @@ public class AssassinController : MonoBehaviour
                 AssassinBoxCollider2D.enabled = false;
                 animator.SetBool("Rewind", true);
                 rewinding = true;
+                audioSource.PlayOneShot(rewindSound);
             }
             else if (Input.GetKeyUp(KeyCode.Space))
             {
@@ -275,6 +293,7 @@ public class AssassinController : MonoBehaviour
         {
 
             healthController.SetMaxHealth(health);
+            
 
             transform.position = new Vector3(assassinTranforms[assassinTranforms.Count - 1].positionX, assassinTranforms[assassinTranforms.Count - 1].positionY, assassinTranforms[assassinTranforms.Count - 1].positionZ);
             transform.localScale = new Vector3(assassinTranforms[assassinTranforms.Count - 1].localScaleX, 1, 1);
@@ -327,6 +346,8 @@ public class AssassinController : MonoBehaviour
             currentHealth--;
             healthController.SetHealth(currentHealth);
             animator.SetTrigger("Hurt");
+            audioSource.PlayOneShot(hurtGrunt);
+            audioSource.PlayOneShot(bloodSquirt);
         }
         else if (currentHealth - 1 == 0)
         {
@@ -334,12 +355,11 @@ public class AssassinController : MonoBehaviour
             healthController.SetHealth(currentHealth);
             animator.SetTrigger("Rewind Death");
             isDead = true;
+            audioSource.PlayOneShot(deathSound);
 
 
             if (deathRewinds == 0)
             {
-
-
                 animator.SetTrigger("Permanent Death");
                 Invoke("RestScene", 3);
             }
