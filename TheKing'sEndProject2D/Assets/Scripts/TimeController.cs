@@ -8,17 +8,17 @@ using UnityEngine.UI;
 
 public class TimeController : MonoBehaviour
 {
-   public Text timeCounter;
+    //public Text timeCounter;
     public TimeSpan timeSpan;
     public bool continueTime;
     public float elapsedTime;
 
     void Start()
     {
-        timeCounter.text = "00:00";
+        //timeCounter.text = "00:00";
         StartTime();
         //continueTime = false;
-        
+
     }
 
     void StartTime()
@@ -40,8 +40,8 @@ public class TimeController : MonoBehaviour
         {
             elapsedTime += Time.deltaTime;
             timeSpan = TimeSpan.FromSeconds(elapsedTime);
-            string currentTime = "Time: "+ timeSpan.ToString("mm':'ss");
-            timeCounter.text = currentTime;
+            string currentTime = "Time: " + timeSpan.ToString("mm':'ss");
+            //timeCounter.text = currentTime;
             yield return null;
         }
     }
@@ -49,6 +49,6 @@ public class TimeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class AssassinController : MonoBehaviour
 {
     [SerializeField] int health = 5;
-   public int totalDeaths = 0;
+    public int totalDeaths = 0;
     [SerializeField] int currentHealth;
     [SerializeField] int deathRewinds = 3;
     [SerializeField] int currentRewinds;
@@ -17,7 +17,7 @@ public class AssassinController : MonoBehaviour
     [SerializeField] GameObject slideDust;
     [SerializeField] HealthController healthController;
     [SerializeField] TimeRewindController rewindController;
-     public LevelComplete levelComplete;
+    public LevelComplete levelComplete;
 
     private Animator animator;
     private Rigidbody2D rbody;
@@ -37,13 +37,13 @@ public class AssassinController : MonoBehaviour
     private bool onWall = false;
     private bool isDead = false;
     private bool rewinding = false;
-    private List<AssassinTransform> assassinTranforms;    
+    private List<AssassinTransform> assassinTranforms;
     private float inputX;
 
     // Start is called before the first frame update
     void Start()
     {
-       //levelComplete = GetComponent<LevelComplete>();
+        //levelComplete = GetComponent<LevelComplete>();
         currentHealth = health;
         currentRewinds = deathRewinds;
         healthController.SetMaxHealth(health);
@@ -175,8 +175,8 @@ public class AssassinController : MonoBehaviour
                     animator.SetBool("Run", true);
                 }
                 else if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
-                {                                    
-                    animator.SetBool("Run", false);                    
+                {
+                    animator.SetBool("Run", false);
                 }
             }
             else if (assassinColliders.GroundedState() == false)
@@ -189,7 +189,7 @@ public class AssassinController : MonoBehaviour
                 else if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
                 {
                     animator.SetBool("Run", false);
-                }              
+                }
 
             }
 
@@ -235,7 +235,7 @@ public class AssassinController : MonoBehaviour
         }
         // Death Rewind
         else if (isDead == true && deathRewinds != 0)
-        {           
+        {
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 AssassinBoxCollider2D.enabled = false;
@@ -254,7 +254,7 @@ public class AssassinController : MonoBehaviour
                     totalDeaths++;
                     levelComplete.getNoOfDeaths(totalDeaths);
 
-                     rewindController.SetMana(currentRewinds);
+                    rewindController.SetMana(currentRewinds);
                     isDead = false;
                     currentHealth = health;
                 }
@@ -270,12 +270,12 @@ public class AssassinController : MonoBehaviour
         if (isDead == false)
         {
             assassinTranforms.Add(new AssassinTransform(transform.position.x, transform.position.y, transform.position.z, transform.localScale.x));
-        } 
+        }
         else if (isDead == true && rewinding == true && assassinTranforms.Count - 1 > 0)
         {
 
             healthController.SetMaxHealth(health);
-       
+
             transform.position = new Vector3(assassinTranforms[assassinTranforms.Count - 1].positionX, assassinTranforms[assassinTranforms.Count - 1].positionY, assassinTranforms[assassinTranforms.Count - 1].positionZ);
             transform.localScale = new Vector3(assassinTranforms[assassinTranforms.Count - 1].localScaleX, 1, 1);
             assassinTranforms.RemoveAt(assassinTranforms.Count - 1);
@@ -335,10 +335,10 @@ public class AssassinController : MonoBehaviour
             animator.SetTrigger("Rewind Death");
             isDead = true;
 
-            
+
             if (deathRewinds == 0)
             {
-              
+
 
                 animator.SetTrigger("Permanent Death");
                 Invoke("RestScene", 3);
@@ -348,7 +348,7 @@ public class AssassinController : MonoBehaviour
 
     private void RestScene()
     {
-      
+
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
@@ -367,5 +367,15 @@ public class AssassinController : MonoBehaviour
             this.positionZ = z;
             this.localScaleX = scaleZ;
         }
+    }
+
+    public int GetCurrentHealth()
+    {
+        return currentHealth;
+    }
+
+    public int GetDeathRewinds()
+    {
+        return deathRewinds;
     }
 }

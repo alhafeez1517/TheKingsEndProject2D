@@ -6,16 +6,18 @@ using TMPro;
 
 public class EndLevel : MonoBehaviour
 {
-    public TimeController timeController;
-    public LevelComplete levelComplete;
-    public GameObject healthCanvas;
-    public GameObject timeCanvas;
-    public GameObject scoreCanvas;
+    private TimeController timeController;
+    private LevelComplete levelComplete;
+    private AssassinController assassinController;
+    private GameObject healthCanvas;
+    private GameObject timeCanvas;
+    private GameObject scoreCanvas;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        assassinController = GameObject.FindGameObjectWithTag("Player").GetComponent<AssassinController>();
+        assassinController.GetCurrentHealth();
     }
 
     public void OnTriggerEnter2D(Collider2D col)
@@ -26,7 +28,7 @@ public class EndLevel : MonoBehaviour
             timeCanvas.gameObject.SetActive(false);
             scoreCanvas.gameObject.SetActive(true);
             timeController.EndTime();
-            levelComplete.timeTaken.text = "Total time taken: "+ timeController.timeCounter.text;
+            //levelComplete.timeTaken.text = "Total time taken: "+ timeController.timeCounter.text;
         }
     }
 
