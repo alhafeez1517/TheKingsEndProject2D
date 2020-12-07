@@ -10,10 +10,19 @@ public class LevelLoader : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                
     }
 
-    
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.CompareTag("Player")
+            && other.GetType().ToString() == "UnityEngine.CapsuleCollider2D")
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+    }
 
-    
+
+
+
 }

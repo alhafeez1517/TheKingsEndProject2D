@@ -10,6 +10,9 @@ TagManager:
   - Trap
   - Rolling
   - Traps
+  - Attack
+  - Block
+  - Enemy
   layers:
   - Default
   - TransparentFX
