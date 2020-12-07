@@ -91,7 +91,7 @@ public class AssassinController : MonoBehaviour
         BGM = GameObject.Find("BGM").GetComponent<AudioSource>();
         BGM2 = BGM.transform.GetChild(0).GetComponent<AudioSource>();
         //healthController = GameObject.Find("HealthBar").GetComponent<HealthController>();
-        // rewindController = GameObject.Find("ManaBar").GetComponent<TimeRewindController>();
+        //rewindController = GameObject.Find("ManaBar").GetComponent<TimeRewindController>();
         //levelComplete = GameObject.Find("ScoreController").GetComponent<LevelComplete>();                     missing
         currentHealth = health;
         currentRewinds = deathRewinds;

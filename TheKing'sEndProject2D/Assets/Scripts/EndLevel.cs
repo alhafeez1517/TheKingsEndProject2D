@@ -34,7 +34,7 @@ public class EndLevel : MonoBehaviour
         {
             audioSource.PlayOneShot(niceSound);
       
-            assassin.gameObject.SetActive(false);
+            //assassin.gameObject.SetActive(false);
             healthCanvas.gameObject.SetActive(false);
             timeCanvas.gameObject.SetActive(false);
             scoreCanvas.gameObject.SetActive(true);
