@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 public class AssassinController : MonoBehaviour
 {
     [SerializeField] int health = 5;
+    [SerializeField] int deathRewinds = 3;
     public int totalDeaths = 0;
     [SerializeField] int currentHealth;
-    [SerializeField] int deathRewinds = 3;
     [SerializeField] int currentRewinds;
     [SerializeField] float movementSpeed = 4.0f;
     [SerializeField] float jumpForce = 7.5f;
@@ -92,7 +92,7 @@ public class AssassinController : MonoBehaviour
         BGM2 = BGM.transform.GetChild(0).GetComponent<AudioSource>();
         //healthController = GameObject.Find("HealthBar").GetComponent<HealthController>();
         //rewindController = GameObject.Find("ManaBar").GetComponent<TimeRewindController>();
-        //levelComplete = GameObject.Find("ScoreController").GetComponent<LevelComplete>();                    
+        levelComplete = GameObject.Find("ScoreController").GetComponent<LevelComplete>();                    
         currentHealth = health;
         currentRewinds = deathRewinds;
         healthController.SetMaxHealth(health);                                                               
@@ -293,6 +293,7 @@ public class AssassinController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
+
                 AssassinBoxCollider2D.enabled = false;
                 animator.SetBool("Rewind", true);
                 rewinding = true;
@@ -341,11 +342,10 @@ public class AssassinController : MonoBehaviour
                 assassinTranforms.Clear();
                 if (deathRewinds > 0)
                 {
-                    deathRewinds--;
+                    currentRewinds--;
+                    rewindController.SetMana(currentRewinds);
                     totalDeaths++;
                     levelComplete.getNoOfDeaths(totalDeaths);
-
-                    rewindController.SetMana(currentRewinds);
                     isDead = false;
                     currentHealth = health;
                 }
@@ -429,8 +429,8 @@ public class AssassinController : MonoBehaviour
             healthController.SetHealth(currentHealth);
             animator.SetTrigger("Rewind Death");
             isDead = true;
-            //audioSource.clip = SoundClips.deathSound;
-            //audioSource.Play();
+            audioSource.clip = SoundClips.deathSound;
+            audioSource.Play();
 
             if (deathRewinds == 0)
             {

@@ -338,9 +338,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 5
+  deathRewinds: 3
   totalDeaths: 0
   currentHealth: 5
-  deathRewinds: 3
   currentRewinds: 0
   movementSpeed: 4
   jumpForce: 7.5
