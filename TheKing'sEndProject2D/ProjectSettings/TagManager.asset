@@ -13,6 +13,7 @@ TagManager:
   - Attack
   - Block
   - Enemy
+  - Arrow
   layers:
   - Default
   - TransparentFX

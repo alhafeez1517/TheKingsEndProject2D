@@ -22,19 +22,18 @@ public class AssassinAttackBlock : MonoBehaviour
             Debug.Log("Attack");
             // Code for enemy public method            
             // ???.TakeDamage();
-        }
+        }        
 
         if (isBlocking == true && collision.tag == "Attack")
         {
             Debug.Log("Block");
             assassinController.BlockAnimation();
         }        
-
-            
-            
-            
-            
-        
+                
+        if (collision.tag == "Arrow")
+        {
+            Destroy(collision.gameObject);
+        }
     }
 
     public void SetIsBlocking(bool isBlock)
