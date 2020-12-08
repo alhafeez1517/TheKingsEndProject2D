@@ -92,11 +92,11 @@ public class AssassinController : MonoBehaviour
         BGM2 = BGM.transform.GetChild(0).GetComponent<AudioSource>();
         //healthController = GameObject.Find("HealthBar").GetComponent<HealthController>();
         //rewindController = GameObject.Find("ManaBar").GetComponent<TimeRewindController>();
-        //levelComplete = GameObject.Find("ScoreController").GetComponent<LevelComplete>();                     missing
+        //levelComplete = GameObject.Find("ScoreController").GetComponent<LevelComplete>();                    
         currentHealth = health;
         currentRewinds = deathRewinds;
-        //healthController.SetMaxHealth(health);                                                               missing
-        //rewindController.SetMaxMana(deathRewinds);                                                           missing
+        healthController.SetMaxHealth(health);                                                               
+        rewindController.SetMaxMana(deathRewinds);                                                          
         animator = GetComponent<Animator>();
         rbody = GetComponent<Rigidbody2D>();
         AssassinBoxCollider2D = GetComponent<BoxCollider2D>();
@@ -421,8 +421,7 @@ public class AssassinController : MonoBehaviour
             animator.SetTrigger("Hurt");
             audioSource.clip = SoundClips.hurtGrunt;
             audioSource.Play();
-            audioSource.clip = SoundClips.bloodSquirt;
-            audioSource.Play();
+           
         }
         else if (currentHealth - 1 == 0)
         {

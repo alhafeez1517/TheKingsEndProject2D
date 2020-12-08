@@ -25,7 +25,7 @@ public class LevelComplete : MonoBehaviour
     void Start()
     {
         sceneName = SceneManager.GetActiveScene().name;
-       
+        Debug.Log(sceneName);
     }
 
     public void getNoOfDeaths(int deaths)
@@ -37,6 +37,14 @@ public class LevelComplete : MonoBehaviour
     void Update()
     {
         
+
+        if (sceneName == "Level_3")
+        {
+            nextLevelButton.gameObject.SetActive(false);
+        }
+
+        
+
     }
 
     public void OnMainMenuClick()

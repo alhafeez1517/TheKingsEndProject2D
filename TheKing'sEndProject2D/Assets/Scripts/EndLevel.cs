@@ -33,8 +33,8 @@ public class EndLevel : MonoBehaviour
         if (col.gameObject.tag == "Player")
         {
             audioSource.PlayOneShot(niceSound);
-      
-            //assassin.gameObject.SetActive(false);
+
+            assassin.gameObject.GetComponent<AssassinController>().enabled = false;
             healthCanvas.gameObject.SetActive(false);
             timeCanvas.gameObject.SetActive(false);
             scoreCanvas.gameObject.SetActive(true);
